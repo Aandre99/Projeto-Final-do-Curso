@@ -1,0 +1,3291 @@
+[
+  {
+    "cdInputDims": {
+      "height": 429,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.91768014,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 362.0,
+          "left": 299.0,
+          "right": 373.0,
+          "top": 326.0
+        },
+        "sampleIdx": 0,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 124,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.9033547,
+        "detectedClass": 6,
+        "id": "0",
+        "location": {
+          "bottom": 99.80112,
+          "left": 33.368935,
+          "right": 70.95162,
+          "top": 40.927322
+        },
+        "sampleIdx": 0,
+        "title": "G"
+      },
+      {
+        "confidence": 0.8785555,
+        "detectedClass": 2,
+        "id": "0",
+        "location": {
+          "bottom": 96.14555,
+          "left": 62.26181,
+          "right": 96.16409,
+          "top": 39.049698
+        },
+        "sampleIdx": 0,
+        "title": "C"
+      },
+      {
+        "confidence": 0.8957577,
+        "detectedClass": 5,
+        "id": "0",
+        "location": {
+          "bottom": 94.3571,
+          "left": 85.93706,
+          "right": 120.57756,
+          "top": 34.800552
+        },
+        "sampleIdx": 0,
+        "title": "F"
+      },
+      {
+        "confidence": 0.8827444,
+        "detectedClass": 30,
+        "id": "0",
+        "location": {
+          "bottom": 90.30474,
+          "left": 113.88502,
+          "right": 148.77203,
+          "top": 32.26068
+        },
+        "sampleIdx": 0,
+        "title": "4"
+      },
+      {
+        "confidence": 0.87043864,
+        "detectedClass": 4,
+        "id": "0",
+        "location": {
+          "bottom": 86.45279,
+          "left": 138.20772,
+          "right": 171.92424,
+          "top": 30.576658
+        },
+        "sampleIdx": 0,
+        "title": "E"
+      },
+      {
+        "confidence": 0.87868434,
+        "detectedClass": 34,
+        "id": "0",
+        "location": {
+          "bottom": 83.879364,
+          "left": 163.04065,
+          "right": 196.34683,
+          "top": 28.225216
+        },
+        "sampleIdx": 0,
+        "title": "8"
+      },
+      {
+        "confidence": 0.88019216,
+        "detectedClass": 26,
+        "id": "0",
+        "location": {
+          "bottom": 81.870415,
+          "left": 189.35478,
+          "right": 227.0472,
+          "top": 25.383324
+        },
+        "sampleIdx": 0,
+        "title": "0"
+      }
+    ],
+    "detectionTime": 2003,
+    "idx": 0,
+    "imageDims": {
+      "height": 747,
+      "width": 890
+    },
+    "imageId": "GCF4E80.jpg",
+    "recognitionTime": 533,
+    "textOfSample": "GCF4E80"
+  },
+  {
+    "cdInputDims": {
+      "height": 362,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.9343519,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 219.0,
+          "left": 75.0,
+          "right": 185.0,
+          "top": 155.0
+        },
+        "sampleIdx": 1,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 148,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.9307471,
+        "detectedClass": 15,
+        "id": "0",
+        "location": {
+          "bottom": 108.97913,
+          "left": 30.113375,
+          "right": 60.482758,
+          "top": 45.633385
+        },
+        "sampleIdx": 1,
+        "title": "P"
+      },
+      {
+        "confidence": 0.92766535,
+        "detectedClass": 11,
+        "id": "0",
+        "location": {
+          "bottom": 111.65386,
+          "left": 56.372917,
+          "right": 86.49586,
+          "top": 49.650383
+        },
+        "sampleIdx": 1,
+        "title": "L"
+      },
+      {
+        "confidence": 0.9332952,
+        "detectedClass": 11,
+        "id": "0",
+        "location": {
+          "bottom": 114.48063,
+          "left": 80.214806,
+          "right": 110.56858,
+          "top": 53.82186
+        },
+        "sampleIdx": 1,
+        "title": "L"
+      },
+      {
+        "confidence": 0.93048865,
+        "detectedClass": 29,
+        "id": "0",
+        "location": {
+          "bottom": 116.05718,
+          "left": 106.274414,
+          "right": 136.92632,
+          "top": 55.815437
+        },
+        "sampleIdx": 1,
+        "title": "3"
+      },
+      {
+        "confidence": 0.9343523,
+        "detectedClass": 9,
+        "id": "0",
+        "location": {
+          "bottom": 118.17802,
+          "left": 133.97577,
+          "right": 166.90015,
+          "top": 57.651604
+        },
+        "sampleIdx": 1,
+        "title": "J"
+      },
+      {
+        "confidence": 0.94355273,
+        "detectedClass": 33,
+        "id": "0",
+        "location": {
+          "bottom": 122.3293,
+          "left": 160.76381,
+          "right": 193.49837,
+          "top": 59.91649
+        },
+        "sampleIdx": 1,
+        "title": "7"
+      },
+      {
+        "confidence": 0.9452956,
+        "detectedClass": 30,
+        "id": "0",
+        "location": {
+          "bottom": 127.30111,
+          "left": 187.94894,
+          "right": 221.62808,
+          "top": 64.03687
+        },
+        "sampleIdx": 1,
+        "title": "4"
+      }
+    ],
+    "detectionTime": 1886,
+    "idx": 1,
+    "imageDims": {
+      "height": 380,
+      "width": 536
+    },
+    "imageId": "PLL3J74.jpg",
+    "recognitionTime": 494,
+    "textOfSample": "PLL3J74"
+  },
+  {
+    "cdInputDims": {
+      "height": 340,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.9086759,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 214.0,
+          "left": 83.0,
+          "right": 141.0,
+          "top": 191.0
+        },
+        "sampleIdx": 2,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 101,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.92285115,
+        "detectedClass": 4,
+        "id": "0",
+        "location": {
+          "bottom": 90.21407,
+          "left": 1.3767033,
+          "right": 35.699776,
+          "top": 32.09333
+        },
+        "sampleIdx": 2,
+        "title": "E"
+      },
+      {
+        "confidence": 0.92372966,
+        "detectedClass": 23,
+        "id": "0",
+        "location": {
+          "bottom": 86.7536,
+          "left": 33.09588,
+          "right": 65.8229,
+          "top": 32.42835
+        },
+        "sampleIdx": 2,
+        "title": "X"
+      },
+      {
+        "confidence": 0.92087895,
+        "detectedClass": 22,
+        "id": "0",
+        "location": {
+          "bottom": 84.495255,
+          "left": 64.18004,
+          "right": 95.461105,
+          "top": 31.459194
+        },
+        "sampleIdx": 2,
+        "title": "W"
+      },
+      {
+        "confidence": 0.93249923,
+        "detectedClass": 28,
+        "id": "0",
+        "location": {
+          "bottom": 83.23719,
+          "left": 106.4122,
+          "right": 140.74733,
+          "top": 30.893494
+        },
+        "sampleIdx": 2,
+        "title": "2"
+      },
+      {
+        "confidence": 0.92846125,
+        "detectedClass": 32,
+        "id": "0",
+        "location": {
+          "bottom": 82.33386,
+          "left": 137.34908,
+          "right": 169.49309,
+          "top": 31.630726
+        },
+        "sampleIdx": 2,
+        "title": "6"
+      },
+      {
+        "confidence": 0.9260369,
+        "detectedClass": 34,
+        "id": "0",
+        "location": {
+          "bottom": 82.490746,
+          "left": 167.96767,
+          "right": 199.94017,
+          "top": 31.750338
+        },
+        "sampleIdx": 2,
+        "title": "8"
+      },
+      {
+        "confidence": 0.9261893,
+        "detectedClass": 34,
+        "id": "0",
+        "location": {
+          "bottom": 83.64639,
+          "left": 198.18881,
+          "right": 231.2297,
+          "top": 31.936733
+        },
+        "sampleIdx": 2,
+        "title": "8"
+      }
+    ],
+    "detectionTime": 1872,
+    "idx": 2,
+    "imageDims": {
+      "height": 655,
+      "width": 984
+    },
+    "imageId": "EXW2688.jpg",
+    "recognitionTime": 495,
+    "textOfSample": "EXW2688"
+  },
+  {
+    "cdInputDims": {
+      "height": 340,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.87968904,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 231.0,
+          "left": 120.0,
+          "right": 176.0,
+          "top": 200.0
+        },
+        "sampleIdx": 3,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 141,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.91887915,
+        "detectedClass": 14,
+        "id": "0",
+        "location": {
+          "bottom": 96.42563,
+          "left": 20.954348,
+          "right": 53.93096,
+          "top": 36.98755
+        },
+        "sampleIdx": 3,
+        "title": "O"
+      },
+      {
+        "confidence": 0.9250273,
+        "detectedClass": 24,
+        "id": "0",
+        "location": {
+          "bottom": 96.77934,
+          "left": 50.753178,
+          "right": 81.29611,
+          "top": 39.94655
+        },
+        "sampleIdx": 3,
+        "title": "Y"
+      },
+      {
+        "confidence": 0.92970526,
+        "detectedClass": 18,
+        "id": "0",
+        "location": {
+          "bottom": 98.55093,
+          "left": 74.01398,
+          "right": 107.22719,
+          "top": 41.62188
+        },
+        "sampleIdx": 3,
+        "title": "S"
+      },
+      {
+        "confidence": 0.9324377,
+        "detectedClass": 34,
+        "id": "0",
+        "location": {
+          "bottom": 100.70984,
+          "left": 114.05914,
+          "right": 147.75449,
+          "top": 44.201145
+        },
+        "sampleIdx": 3,
+        "title": "8"
+      },
+      {
+        "confidence": 0.92787415,
+        "detectedClass": 35,
+        "id": "0",
+        "location": {
+          "bottom": 103.40509,
+          "left": 143.56339,
+          "right": 177.53394,
+          "top": 45.23569
+        },
+        "sampleIdx": 3,
+        "title": "9"
+      },
+      {
+        "confidence": 0.9220966,
+        "detectedClass": 31,
+        "id": "0",
+        "location": {
+          "bottom": 106.38044,
+          "left": 172.74524,
+          "right": 208.42749,
+          "top": 46.48107
+        },
+        "sampleIdx": 3,
+        "title": "5"
+      },
+      {
+        "confidence": 0.89610285,
+        "detectedClass": 27,
+        "id": "0",
+        "location": {
+          "bottom": 111.16724,
+          "left": 207.30275,
+          "right": 232.60066,
+          "top": 46.223114
+        },
+        "sampleIdx": 3,
+        "title": "1"
+      }
+    ],
+    "detectionTime": 1824,
+    "idx": 3,
+    "imageDims": {
+      "height": 655,
+      "width": 984
+    },
+    "imageId": "OYS8951.jpg",
+    "recognitionTime": 478,
+    "textOfSample": "OYS8951"
+  },
+  {
+    "cdInputDims": {
+      "height": 332,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.9346613,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 232.0,
+          "left": 84.0,
+          "right": 148.0,
+          "top": 207.0
+        },
+        "sampleIdx": 4,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 100,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.9265304,
+        "detectedClass": 5,
+        "id": "0",
+        "location": {
+          "bottom": 91.72987,
+          "left": 24.617968,
+          "right": 55.642723,
+          "top": 27.639317
+        },
+        "sampleIdx": 4,
+        "title": "F"
+      },
+      {
+        "confidence": 0.91798395,
+        "detectedClass": 22,
+        "id": "0",
+        "location": {
+          "bottom": 87.61084,
+          "left": 55.0976,
+          "right": 83.79053,
+          "top": 28.657192
+        },
+        "sampleIdx": 4,
+        "title": "W"
+      },
+      {
+        "confidence": 0.9156753,
+        "detectedClass": 22,
+        "id": "0",
+        "location": {
+          "bottom": 84.90277,
+          "left": 84.580376,
+          "right": 112.06715,
+          "top": 29.114056
+        },
+        "sampleIdx": 4,
+        "title": "W"
+      },
+      {
+        "confidence": 0.9221935,
+        "detectedClass": 31,
+        "id": "0",
+        "location": {
+          "bottom": 83.328766,
+          "left": 112.2795,
+          "right": 142.56119,
+          "top": 29.643019
+        },
+        "sampleIdx": 4,
+        "title": "5"
+      },
+      {
+        "confidence": 0.9246102,
+        "detectedClass": 9,
+        "id": "0",
+        "location": {
+          "bottom": 83.48809,
+          "left": 141.39969,
+          "right": 172.86374,
+          "top": 29.827074
+        },
+        "sampleIdx": 4,
+        "title": "J"
+      },
+      {
+        "confidence": 0.9263693,
+        "detectedClass": 28,
+        "id": "0",
+        "location": {
+          "bottom": 84.65822,
+          "left": 169.95581,
+          "right": 202.87125,
+          "top": 30.022814
+        },
+        "sampleIdx": 4,
+        "title": "2"
+      },
+      {
+        "confidence": 0.9252935,
+        "detectedClass": 30,
+        "id": "0",
+        "location": {
+          "bottom": 86.91434,
+          "left": 199.87096,
+          "right": 234.4876,
+          "top": 30.42889
+        },
+        "sampleIdx": 4,
+        "title": "4"
+      }
+    ],
+    "detectionTime": 1866,
+    "idx": 4,
+    "imageDims": {
+      "height": 502,
+      "width": 774
+    },
+    "imageId": "FWW5J24.jpg",
+    "recognitionTime": 493,
+    "textOfSample": "FWW5J24"
+  },
+  {
+    "cdInputDims": {
+      "height": 341,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.8979345,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 189.0,
+          "left": 90.0,
+          "right": 147.0,
+          "top": 170.0
+        },
+        "sampleIdx": 5,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 85,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.81041384,
+        "detectedClass": 15,
+        "id": "0",
+        "location": {
+          "bottom": 81.28798,
+          "left": 11.423887,
+          "right": 46.766647,
+          "top": 13.264023
+        },
+        "sampleIdx": 5,
+        "title": "P"
+      },
+      {
+        "confidence": 0.86427253,
+        "detectedClass": 11,
+        "id": "0",
+        "location": {
+          "bottom": 77.904785,
+          "left": 43.88925,
+          "right": 79.16913,
+          "top": 13.774464
+        },
+        "sampleIdx": 5,
+        "title": "L"
+      },
+      {
+        "confidence": 0.83733743,
+        "detectedClass": 11,
+        "id": "0",
+        "location": {
+          "bottom": 75.475296,
+          "left": 73.968994,
+          "right": 108.90312,
+          "top": 15.015612
+        },
+        "sampleIdx": 5,
+        "title": "L"
+      },
+      {
+        "confidence": 0.8630376,
+        "detectedClass": 34,
+        "id": "0",
+        "location": {
+          "bottom": 74.493935,
+          "left": 107.13919,
+          "right": 139.4055,
+          "top": 16.720644
+        },
+        "sampleIdx": 5,
+        "title": "8"
+      },
+      {
+        "confidence": 0.85603356,
+        "detectedClass": 9,
+        "id": "0",
+        "location": {
+          "bottom": 74.96956,
+          "left": 138.31389,
+          "right": 172.76378,
+          "top": 16.343594
+        },
+        "sampleIdx": 5,
+        "title": "J"
+      },
+      {
+        "confidence": 0.84505856,
+        "detectedClass": 27,
+        "id": "0",
+        "location": {
+          "bottom": 76.0,
+          "left": 169.70929,
+          "right": 201.35468,
+          "top": 16.034374
+        },
+        "sampleIdx": 5,
+        "title": "1"
+      },
+      {
+        "confidence": 0.8196858,
+        "detectedClass": 30,
+        "id": "0",
+        "location": {
+          "bottom": 76.655365,
+          "left": 196.7841,
+          "right": 233.43306,
+          "top": 15.585588
+        },
+        "sampleIdx": 5,
+        "title": "4"
+      }
+    ],
+    "detectionTime": 1845,
+    "idx": 5,
+    "imageDims": {
+      "height": 773,
+      "width": 1160
+    },
+    "imageId": "PLL8J14.jpg",
+    "recognitionTime": 492,
+    "textOfSample": "PLL8J14"
+  },
+  {
+    "cdInputDims": {
+      "height": 334,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.9246729,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 315.0,
+          "left": 72.0,
+          "right": 171.0,
+          "top": 259.0
+        },
+        "sampleIdx": 6,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 144,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.8919461,
+        "detectedClass": 9,
+        "id": "0",
+        "location": {
+          "bottom": 97.27801,
+          "left": 19.73454,
+          "right": 51.796707,
+          "top": 44.135094
+        },
+        "sampleIdx": 6,
+        "title": "J"
+      },
+      {
+        "confidence": 0.91512954,
+        "detectedClass": 7,
+        "id": "0",
+        "location": {
+          "bottom": 99.13345,
+          "left": 46.6435,
+          "right": 77.04032,
+          "top": 47.87189
+        },
+        "sampleIdx": 6,
+        "title": "H"
+      },
+      {
+        "confidence": 0.9106795,
+        "detectedClass": 22,
+        "id": "0",
+        "location": {
+          "bottom": 104.30489,
+          "left": 73.884705,
+          "right": 102.7207,
+          "top": 51.03605
+        },
+        "sampleIdx": 6,
+        "title": "W"
+      },
+      {
+        "confidence": 0.91118157,
+        "detectedClass": 32,
+        "id": "0",
+        "location": {
+          "bottom": 108.255196,
+          "left": 111.741196,
+          "right": 143.92442,
+          "top": 55.201576
+        },
+        "sampleIdx": 6,
+        "title": "6"
+      },
+      {
+        "confidence": 0.93111855,
+        "detectedClass": 33,
+        "id": "0",
+        "location": {
+          "bottom": 110.54297,
+          "left": 140.53835,
+          "right": 172.53618,
+          "top": 57.364502
+        },
+        "sampleIdx": 6,
+        "title": "7"
+      },
+      {
+        "confidence": 0.92464936,
+        "detectedClass": 33,
+        "id": "0",
+        "location": {
+          "bottom": 117.48024,
+          "left": 167.58786,
+          "right": 199.69589,
+          "top": 60.81987
+        },
+        "sampleIdx": 6,
+        "title": "7"
+      },
+      {
+        "confidence": 0.92876065,
+        "detectedClass": 29,
+        "id": "0",
+        "location": {
+          "bottom": 123.57214,
+          "left": 196.37105,
+          "right": 229.77946,
+          "top": 63.42418
+        },
+        "sampleIdx": 6,
+        "title": "3"
+      }
+    ],
+    "detectionTime": 1862,
+    "idx": 6,
+    "imageDims": {
+      "height": 448,
+      "width": 685
+    },
+    "imageId": "JHW6773.jpg",
+    "recognitionTime": 485,
+    "textOfSample": "JHW6773"
+  },
+  {
+    "cdInputDims": {
+      "height": 341,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.94058794,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 287.0,
+          "left": 98.0,
+          "right": 204.0,
+          "top": 235.0
+        },
+        "sampleIdx": 7,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 125,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.9234686,
+        "detectedClass": 2,
+        "id": "0",
+        "location": {
+          "bottom": 90.52086,
+          "left": 33.25247,
+          "right": 60.248363,
+          "top": 38.793713
+        },
+        "sampleIdx": 7,
+        "title": "C"
+      },
+      {
+        "confidence": 0.9362855,
+        "detectedClass": 18,
+        "id": "0",
+        "location": {
+          "bottom": 91.59905,
+          "left": 57.169846,
+          "right": 86.140076,
+          "top": 40.423805
+        },
+        "sampleIdx": 7,
+        "title": "S"
+      },
+      {
+        "confidence": 0.93538964,
+        "detectedClass": 25,
+        "id": "0",
+        "location": {
+          "bottom": 92.94029,
+          "left": 82.83219,
+          "right": 111.509346,
+          "top": 42.195816
+        },
+        "sampleIdx": 7,
+        "title": "Z"
+      },
+      {
+        "confidence": 0.9332543,
+        "detectedClass": 29,
+        "id": "0",
+        "location": {
+          "bottom": 93.98279,
+          "left": 109.48653,
+          "right": 137.55867,
+          "top": 43.112976
+        },
+        "sampleIdx": 7,
+        "title": "3"
+      },
+      {
+        "confidence": 0.93169963,
+        "detectedClass": 1,
+        "id": "0",
+        "location": {
+          "bottom": 94.405075,
+          "left": 135.79434,
+          "right": 163.94229,
+          "top": 43.798443
+        },
+        "sampleIdx": 7,
+        "title": "B"
+      },
+      {
+        "confidence": 0.92854786,
+        "detectedClass": 33,
+        "id": "0",
+        "location": {
+          "bottom": 96.62076,
+          "left": 161.85852,
+          "right": 191.3519,
+          "top": 44.184708
+        },
+        "sampleIdx": 7,
+        "title": "7"
+      },
+      {
+        "confidence": 0.924962,
+        "detectedClass": 34,
+        "id": "0",
+        "location": {
+          "bottom": 99.427795,
+          "left": 191.72118,
+          "right": 219.18651,
+          "top": 46.064407
+        },
+        "sampleIdx": 7,
+        "title": "8"
+      }
+    ],
+    "detectionTime": 1834,
+    "idx": 7,
+    "imageDims": {
+      "height": 1333,
+      "width": 1999
+    },
+    "imageId": "CSZ3B78.jpg",
+    "recognitionTime": 489,
+    "textOfSample": "CSZ3B78"
+  },
+  {
+    "cdInputDims": {
+      "height": 384,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.92960155,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 215.0,
+          "left": 162.0,
+          "right": 243.0,
+          "top": 179.0
+        },
+        "sampleIdx": 8,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 113,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.9313687,
+        "detectedClass": 1,
+        "id": "0",
+        "location": {
+          "bottom": 90.92946,
+          "left": 13.058327,
+          "right": 45.55941,
+          "top": 38.254623
+        },
+        "sampleIdx": 8,
+        "title": "B"
+      },
+      {
+        "confidence": 0.93288237,
+        "detectedClass": 1,
+        "id": "0",
+        "location": {
+          "bottom": 88.972755,
+          "left": 45.197098,
+          "right": 75.28495,
+          "top": 39.610756
+        },
+        "sampleIdx": 8,
+        "title": "B"
+      },
+      {
+        "confidence": 0.93157667,
+        "detectedClass": 16,
+        "id": "0",
+        "location": {
+          "bottom": 88.959816,
+          "left": 74.395004,
+          "right": 105.26747,
+          "top": 39.335655
+        },
+        "sampleIdx": 8,
+        "title": "Q"
+      },
+      {
+        "confidence": 0.8857455,
+        "detectedClass": 27,
+        "id": "0",
+        "location": {
+          "bottom": 89.99016,
+          "left": 126.41298,
+          "right": 143.24608,
+          "top": 39.85596
+        },
+        "sampleIdx": 8,
+        "title": "1"
+      },
+      {
+        "confidence": 0.929328,
+        "detectedClass": 34,
+        "id": "0",
+        "location": {
+          "bottom": 90.67858,
+          "left": 149.52673,
+          "right": 181.7297,
+          "top": 40.34388
+        },
+        "sampleIdx": 8,
+        "title": "8"
+      },
+      {
+        "confidence": 0.93278116,
+        "detectedClass": 35,
+        "id": "0",
+        "location": {
+          "bottom": 91.85579,
+          "left": 179.435,
+          "right": 213.38568,
+          "top": 40.247257
+        },
+        "sampleIdx": 8,
+        "title": "9"
+      },
+      {
+        "confidence": 0.9329128,
+        "detectedClass": 34,
+        "id": "0",
+        "location": {
+          "bottom": 92.85005,
+          "left": 210.57552,
+          "right": 245.07603,
+          "top": 40.314747
+        },
+        "sampleIdx": 8,
+        "title": "8"
+      }
+    ],
+    "detectionTime": 1862,
+    "idx": 8,
+    "imageDims": {
+      "height": 480,
+      "width": 640
+    },
+    "imageId": "BBQ1898.jpg",
+    "recognitionTime": 492,
+    "textOfSample": "BBQ1898"
+  },
+  {
+    "cdInputDims": {
+      "height": 332,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.92406994,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 283.0,
+          "left": 193.0,
+          "right": 271.0,
+          "top": 256.0
+        },
+        "sampleIdx": 9,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 88,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.9005103,
+        "detectedClass": 10,
+        "id": "0",
+        "location": {
+          "bottom": 80.601776,
+          "left": 3.2588463,
+          "right": 36.073933,
+          "top": 30.822327
+        },
+        "sampleIdx": 9,
+        "title": "K"
+      },
+      {
+        "confidence": 0.90257317,
+        "detectedClass": 15,
+        "id": "0",
+        "location": {
+          "bottom": 77.26906,
+          "left": 35.220387,
+          "right": 67.92935,
+          "top": 29.493042
+        },
+        "sampleIdx": 9,
+        "title": "P"
+      },
+      {
+        "confidence": 0.9039305,
+        "detectedClass": 22,
+        "id": "0",
+        "location": {
+          "bottom": 74.07823,
+          "left": 67.79062,
+          "right": 98.63878,
+          "top": 26.600636
+        },
+        "sampleIdx": 9,
+        "title": "W"
+      },
+      {
+        "confidence": 0.9040561,
+        "detectedClass": 31,
+        "id": "0",
+        "location": {
+          "bottom": 70.21324,
+          "left": 113.7393,
+          "right": 145.61122,
+          "top": 24.653847
+        },
+        "sampleIdx": 9,
+        "title": "5"
+      },
+      {
+        "confidence": 0.8738964,
+        "detectedClass": 29,
+        "id": "0",
+        "location": {
+          "bottom": 69.20232,
+          "left": 143.76909,
+          "right": 176.48595,
+          "top": 23.161404
+        },
+        "sampleIdx": 9,
+        "title": "3"
+      },
+      {
+        "confidence": 0.8665126,
+        "detectedClass": 34,
+        "id": "0",
+        "location": {
+          "bottom": 67.57854,
+          "left": 176.93813,
+          "right": 208.53844,
+          "top": 23.406101
+        },
+        "sampleIdx": 9,
+        "title": "8"
+      },
+      {
+        "confidence": 0.8763107,
+        "detectedClass": 26,
+        "id": "0",
+        "location": {
+          "bottom": 67.877014,
+          "left": 208.26695,
+          "right": 241.03886,
+          "top": 21.972477
+        },
+        "sampleIdx": 9,
+        "title": "0"
+      }
+    ],
+    "detectionTime": 1877,
+    "idx": 9,
+    "imageDims": {
+      "height": 446,
+      "width": 687
+    },
+    "imageId": "KPW5380.jpg",
+    "recognitionTime": 490,
+    "textOfSample": "KPW5380"
+  },
+  {
+    "cdInputDims": {
+      "height": 307,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.91953367,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 211.0,
+          "left": 191.0,
+          "right": 322.0,
+          "top": 169.0
+        },
+        "sampleIdx": 10,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 82,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.9133049,
+        "detectedClass": 11,
+        "id": "0",
+        "location": {
+          "bottom": 71.297195,
+          "left": 14.080855,
+          "right": 43.543045,
+          "top": 23.933084
+        },
+        "sampleIdx": 10,
+        "title": "L"
+      },
+      {
+        "confidence": 0.91015995,
+        "detectedClass": 4,
+        "id": "0",
+        "location": {
+          "bottom": 69.6384,
+          "left": 44.629536,
+          "right": 74.059814,
+          "top": 25.580173
+        },
+        "sampleIdx": 10,
+        "title": "E"
+      },
+      {
+        "confidence": 0.90806115,
+        "detectedClass": 16,
+        "id": "0",
+        "location": {
+          "bottom": 69.80821,
+          "left": 74.5629,
+          "right": 102.94664,
+          "top": 24.98564
+        },
+        "sampleIdx": 10,
+        "title": "Q"
+      },
+      {
+        "confidence": 0.91227716,
+        "detectedClass": 30,
+        "id": "0",
+        "location": {
+          "bottom": 69.52499,
+          "left": 118.5875,
+          "right": 149.31018,
+          "top": 23.819191
+        },
+        "sampleIdx": 10,
+        "title": "4"
+      },
+      {
+        "confidence": 0.92419183,
+        "detectedClass": 28,
+        "id": "0",
+        "location": {
+          "bottom": 69.68767,
+          "left": 148.5537,
+          "right": 181.48906,
+          "top": 24.158976
+        },
+        "sampleIdx": 10,
+        "title": "2"
+      },
+      {
+        "confidence": 0.9267414,
+        "detectedClass": 33,
+        "id": "0",
+        "location": {
+          "bottom": 69.74154,
+          "left": 178.02534,
+          "right": 210.67342,
+          "top": 23.935308
+        },
+        "sampleIdx": 10,
+        "title": "7"
+      },
+      {
+        "confidence": 0.92467237,
+        "detectedClass": 28,
+        "id": "0",
+        "location": {
+          "bottom": 71.46333,
+          "left": 207.82706,
+          "right": 244.11923,
+          "top": 23.71125
+        },
+        "sampleIdx": 10,
+        "title": "2"
+      }
+    ],
+    "detectionTime": 1826,
+    "idx": 10,
+    "imageDims": {
+      "height": 652,
+      "width": 1086
+    },
+    "imageId": "LEQ4272.jpg",
+    "recognitionTime": 491,
+    "textOfSample": "LEQ4272"
+  },
+  {
+    "cdInputDims": {
+      "height": 384,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.92218757,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 328.0,
+          "left": 359.0,
+          "right": 408.0,
+          "top": 297.0
+        },
+        "sampleIdx": 11,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 161,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.8653168,
+        "detectedClass": 4,
+        "id": "0",
+        "location": {
+          "bottom": 134.4469,
+          "left": 18.908857,
+          "right": 59.814545,
+          "top": 70.36319
+        },
+        "sampleIdx": 11,
+        "title": "E"
+      },
+      {
+        "confidence": 0.8466139,
+        "detectedClass": 2,
+        "id": "0",
+        "location": {
+          "bottom": 128.44888,
+          "left": 51.656887,
+          "right": 88.602036,
+          "top": 67.93899
+        },
+        "sampleIdx": 11,
+        "title": "C"
+      },
+      {
+        "confidence": 0.80423325,
+        "detectedClass": 19,
+        "id": "0",
+        "location": {
+          "bottom": 123.84232,
+          "left": 81.29529,
+          "right": 118.041046,
+          "top": 61.346336
+        },
+        "sampleIdx": 11,
+        "title": "T"
+      },
+      {
+        "confidence": 0.7812519,
+        "detectedClass": 27,
+        "id": "0",
+        "location": {
+          "bottom": 117.40688,
+          "left": 121.95843,
+          "right": 144.30713,
+          "top": 55.602486
+        },
+        "sampleIdx": 11,
+        "title": "1"
+      },
+      {
+        "confidence": 0.85183287,
+        "detectedClass": 28,
+        "id": "0",
+        "location": {
+          "bottom": 113.20272,
+          "left": 144.00337,
+          "right": 182.1527,
+          "top": 52.140648
+        },
+        "sampleIdx": 11,
+        "title": "2"
+      },
+      {
+        "confidence": 0.81336766,
+        "detectedClass": 30,
+        "id": "0",
+        "location": {
+          "bottom": 107.37062,
+          "left": 172.86917,
+          "right": 208.1484,
+          "top": 48.70975
+        },
+        "sampleIdx": 11,
+        "title": "4"
+      },
+      {
+        "confidence": 0.81021416,
+        "detectedClass": 33,
+        "id": "0",
+        "location": {
+          "bottom": 102.31735,
+          "left": 199.47884,
+          "right": 235.00822,
+          "top": 45.710922
+        },
+        "sampleIdx": 11,
+        "title": "7"
+      }
+    ],
+    "detectionTime": 1834,
+    "idx": 11,
+    "imageDims": {
+      "height": 3216,
+      "width": 4288
+    },
+    "imageId": "ECT1247.jpg",
+    "recognitionTime": 490,
+    "textOfSample": "ECT1247"
+  },
+  {
+    "cdInputDims": {
+      "height": 340,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.92678815,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 217.0,
+          "left": 83.0,
+          "right": 149.0,
+          "top": 183.0
+        },
+        "sampleIdx": 12,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 131,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.9133787,
+        "detectedClass": 15,
+        "id": "0",
+        "location": {
+          "bottom": 104.352,
+          "left": 17.92094,
+          "right": 49.788425,
+          "top": 44.00698
+        },
+        "sampleIdx": 12,
+        "title": "P"
+      },
+      {
+        "confidence": 0.9068446,
+        "detectedClass": 2,
+        "id": "0",
+        "location": {
+          "bottom": 103.73014,
+          "left": 45.95298,
+          "right": 76.7223,
+          "top": 45.380455
+        },
+        "sampleIdx": 12,
+        "title": "C"
+      },
+      {
+        "confidence": 0.9299896,
+        "detectedClass": 2,
+        "id": "0",
+        "location": {
+          "bottom": 103.647484,
+          "left": 72.53105,
+          "right": 105.341934,
+          "top": 45.64953
+        },
+        "sampleIdx": 12,
+        "title": "C"
+      },
+      {
+        "confidence": 0.9350299,
+        "detectedClass": 29,
+        "id": "0",
+        "location": {
+          "bottom": 104.364494,
+          "left": 110.94801,
+          "right": 146.74376,
+          "top": 45.392113
+        },
+        "sampleIdx": 12,
+        "title": "3"
+      },
+      {
+        "confidence": 0.8930602,
+        "detectedClass": 27,
+        "id": "0",
+        "location": {
+          "bottom": 104.51881,
+          "left": 147.06644,
+          "right": 168.76263,
+          "top": 46.070763
+        },
+        "sampleIdx": 12,
+        "title": "1"
+      },
+      {
+        "confidence": 0.92048407,
+        "detectedClass": 31,
+        "id": "0",
+        "location": {
+          "bottom": 104.76866,
+          "left": 169.39616,
+          "right": 204.9485,
+          "top": 47.081192
+        },
+        "sampleIdx": 12,
+        "title": "5"
+      },
+      {
+        "confidence": 0.91438735,
+        "detectedClass": 33,
+        "id": "0",
+        "location": {
+          "bottom": 105.54503,
+          "left": 197.67426,
+          "right": 234.1081,
+          "top": 46.707474
+        },
+        "sampleIdx": 12,
+        "title": "7"
+      }
+    ],
+    "detectionTime": 1875,
+    "idx": 12,
+    "imageDims": {
+      "height": 655,
+      "width": 984
+    },
+    "imageId": "PCC3157.jpg",
+    "recognitionTime": 491,
+    "textOfSample": "PCC3157"
+  },
+  {
+    "cdInputDims": {
+      "height": 345,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.91685945,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 259.0,
+          "left": 47.0,
+          "right": 92.0,
+          "top": 226.0
+        },
+        "sampleIdx": 13,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 187,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.92840594,
+        "detectedClass": 5,
+        "id": "0",
+        "location": {
+          "bottom": 125.47927,
+          "left": 24.021334,
+          "right": 57.564087,
+          "top": 56.76922
+        },
+        "sampleIdx": 13,
+        "title": "F"
+      },
+      {
+        "confidence": 0.92341167,
+        "detectedClass": 19,
+        "id": "0",
+        "location": {
+          "bottom": 128.92683,
+          "left": 50.707024,
+          "right": 83.13616,
+          "top": 60.65575
+        },
+        "sampleIdx": 13,
+        "title": "T"
+      },
+      {
+        "confidence": 0.9268346,
+        "detectedClass": 11,
+        "id": "0",
+        "location": {
+          "bottom": 132.34337,
+          "left": 73.359985,
+          "right": 105.97916,
+          "top": 62.240795
+        },
+        "sampleIdx": 13,
+        "title": "L"
+      },
+      {
+        "confidence": 0.9449128,
+        "detectedClass": 26,
+        "id": "0",
+        "location": {
+          "bottom": 135.79091,
+          "left": 108.85177,
+          "right": 143.57162,
+          "top": 66.438995
+        },
+        "sampleIdx": 13,
+        "title": "0"
+      },
+      {
+        "confidence": 0.9346213,
+        "detectedClass": 33,
+        "id": "0",
+        "location": {
+          "bottom": 137.5,
+          "left": 137.2223,
+          "right": 169.94984,
+          "top": 69.49525
+        },
+        "sampleIdx": 13,
+        "title": "7"
+      },
+      {
+        "confidence": 0.93536,
+        "detectedClass": 34,
+        "id": "0",
+        "location": {
+          "bottom": 143.49753,
+          "left": 164.51709,
+          "right": 197.48541,
+          "top": 74.30455
+        },
+        "sampleIdx": 13,
+        "title": "8"
+      },
+      {
+        "confidence": 0.8982472,
+        "detectedClass": 30,
+        "id": "0",
+        "location": {
+          "bottom": 150.36623,
+          "left": 189.25894,
+          "right": 226.64304,
+          "top": 77.737274
+        },
+        "sampleIdx": 13,
+        "title": "4"
+      }
+    ],
+    "detectionTime": 1825,
+    "idx": 13,
+    "imageDims": {
+      "height": 690,
+      "width": 1024
+    },
+    "imageId": "FTL0784.jpg",
+    "recognitionTime": 490,
+    "textOfSample": "FTL0784"
+  },
+  {
+    "cdInputDims": {
+      "height": 341,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.87966996,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 185.0,
+          "left": 190.0,
+          "right": 320.0,
+          "top": 136.0
+        },
+        "sampleIdx": 14,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 96,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.8990823,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 78.53771,
+          "left": 30.938404,
+          "right": 54.492275,
+          "top": 30.46818
+        },
+        "sampleIdx": 14,
+        "title": "A"
+      },
+      {
+        "confidence": 0.89493185,
+        "detectedClass": 1,
+        "id": "0",
+        "location": {
+          "bottom": 76.806175,
+          "left": 56.79206,
+          "right": 81.25303,
+          "top": 30.998983
+        },
+        "sampleIdx": 14,
+        "title": "B"
+      },
+      {
+        "confidence": 0.9002264,
+        "detectedClass": 2,
+        "id": "0",
+        "location": {
+          "bottom": 76.39772,
+          "left": 83.77937,
+          "right": 109.63324,
+          "top": 30.615541
+        },
+        "sampleIdx": 14,
+        "title": "C"
+      },
+      {
+        "confidence": 0.9024448,
+        "detectedClass": 26,
+        "id": "0",
+        "location": {
+          "bottom": 76.72394,
+          "left": 111.06549,
+          "right": 137.19237,
+          "top": 30.523893
+        },
+        "sampleIdx": 14,
+        "title": "0"
+      },
+      {
+        "confidence": 0.8573291,
+        "detectedClass": 28,
+        "id": "0",
+        "location": {
+          "bottom": 76.9561,
+          "left": 137.68768,
+          "right": 164.78784,
+          "top": 30.398579
+        },
+        "sampleIdx": 14,
+        "title": "2"
+      },
+      {
+        "confidence": 0.89387554,
+        "detectedClass": 29,
+        "id": "0",
+        "location": {
+          "bottom": 76.96759,
+          "left": 164.80515,
+          "right": 192.89795,
+          "top": 30.304123
+        },
+        "sampleIdx": 14,
+        "title": "3"
+      },
+      {
+        "confidence": 0.7781606,
+        "detectedClass": 34,
+        "id": "0",
+        "location": {
+          "bottom": 95.0,
+          "left": 164.68387,
+          "right": 195.0354,
+          "top": 91.978714
+        },
+        "sampleIdx": 14,
+        "title": "8"
+      }
+    ],
+    "detectionTime": 1885,
+    "idx": 14,
+    "imageDims": {
+      "height": 433,
+      "width": 649
+    },
+    "imageId": "ABC0234.jpg",
+    "recognitionTime": 492,
+    "textOfSample": "ABC0238"
+  },
+  {
+    "cdInputDims": {
+      "height": 307,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.84623325,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 219.0,
+          "left": 360.0,
+          "right": 419.0,
+          "top": 195.0
+        },
+        "sampleIdx": 15,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 104,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.8550891,
+        "detectedClass": 2,
+        "id": "0",
+        "location": {
+          "bottom": 86.151855,
+          "left": 7.759371,
+          "right": 49.106743,
+          "top": 27.583145
+        },
+        "sampleIdx": 15,
+        "title": "C"
+      },
+      {
+        "confidence": 0.8709469,
+        "detectedClass": 17,
+        "id": "0",
+        "location": {
+          "bottom": 84.753975,
+          "left": 44.604378,
+          "right": 82.61139,
+          "top": 28.848139
+        },
+        "sampleIdx": 15,
+        "title": "R"
+      },
+      {
+        "confidence": 0.8347959,
+        "detectedClass": 21,
+        "id": "0",
+        "location": {
+          "bottom": 83.22122,
+          "left": 78.6707,
+          "right": 113.820465,
+          "top": 29.786255
+        },
+        "sampleIdx": 15,
+        "title": "V"
+      },
+      {
+        "confidence": 0.89498544,
+        "detectedClass": 28,
+        "id": "0",
+        "location": {
+          "bottom": 83.64203,
+          "left": 118.43512,
+          "right": 156.77426,
+          "top": 31.416748
+        },
+        "sampleIdx": 15,
+        "title": "2"
+      },
+      {
+        "confidence": 0.899491,
+        "detectedClass": 34,
+        "id": "0",
+        "location": {
+          "bottom": 84.51512,
+          "left": 151.05275,
+          "right": 185.88112,
+          "top": 32.604324
+        },
+        "sampleIdx": 15,
+        "title": "8"
+      },
+      {
+        "confidence": 0.89195234,
+        "detectedClass": 34,
+        "id": "0",
+        "location": {
+          "bottom": 85.04823,
+          "left": 180.15675,
+          "right": 214.71565,
+          "top": 33.775524
+        },
+        "sampleIdx": 15,
+        "title": "8"
+      },
+      {
+        "confidence": 0.7891918,
+        "detectedClass": 30,
+        "id": "0",
+        "location": {
+          "bottom": 103.0,
+          "left": 190.19443,
+          "right": 224.90012,
+          "top": 101.41578
+        },
+        "sampleIdx": 15,
+        "title": "4"
+      }
+    ],
+    "detectionTime": 1832,
+    "idx": 15,
+    "imageDims": {
+      "height": 768,
+      "width": 1280
+    },
+    "imageId": "CRV2885.jpg",
+    "recognitionTime": 487,
+    "textOfSample": "CRV2884"
+  },
+  {
+    "cdInputDims": {
+      "height": 295,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.91183186,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 218.0,
+          "left": 399.0,
+          "right": 452.0,
+          "top": 188.0
+        },
+        "sampleIdx": 16,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 144,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.8287,
+        "detectedClass": 21,
+        "id": "0",
+        "location": {
+          "bottom": 118.79938,
+          "left": 17.491852,
+          "right": 52.22618,
+          "top": 53.27164
+        },
+        "sampleIdx": 16,
+        "title": "V"
+      },
+      {
+        "confidence": 0.84206694,
+        "detectedClass": 22,
+        "id": "0",
+        "location": {
+          "bottom": 116.95735,
+          "left": 47.864746,
+          "right": 79.94147,
+          "top": 50.991802
+        },
+        "sampleIdx": 16,
+        "title": "W"
+      },
+      {
+        "confidence": 0.85478044,
+        "detectedClass": 1,
+        "id": "0",
+        "location": {
+          "bottom": 114.31163,
+          "left": 77.443565,
+          "right": 112.41331,
+          "top": 50.89848
+        },
+        "sampleIdx": 16,
+        "title": "B"
+      },
+      {
+        "confidence": 0.8487745,
+        "detectedClass": 28,
+        "id": "0",
+        "location": {
+          "bottom": 111.41368,
+          "left": 134.59497,
+          "right": 170.84802,
+          "top": 48.152573
+        },
+        "sampleIdx": 16,
+        "title": "2"
+      },
+      {
+        "confidence": 0.8417271,
+        "detectedClass": 29,
+        "id": "0",
+        "location": {
+          "bottom": 110.89608,
+          "left": 165.22801,
+          "right": 199.28963,
+          "top": 46.745644
+        },
+        "sampleIdx": 16,
+        "title": "3"
+      },
+      {
+        "confidence": 0.77359986,
+        "detectedClass": 30,
+        "id": "0",
+        "location": {
+          "bottom": 110.33296,
+          "left": 192.95334,
+          "right": 230.13992,
+          "top": 45.73373
+        },
+        "sampleIdx": 16,
+        "title": "4"
+      }
+    ],
+    "detectionTime": 1880,
+    "idx": 16,
+    "imageDims": {
+      "height": 590,
+      "width": 1024
+    },
+    "imageId": "VWB1234.jpg",
+    "recognitionTime": 488,
+    "textOfSample": "VWB234"
+  },
+  {
+    "cdInputDims": {
+      "height": 307,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.90703046,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 204.0,
+          "left": 178.0,
+          "right": 247.0,
+          "top": 179.0
+        },
+        "sampleIdx": 17,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 92,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.8991108,
+        "detectedClass": 13,
+        "id": "0",
+        "location": {
+          "bottom": 73.313286,
+          "left": 18.900358,
+          "right": 49.562653,
+          "top": 17.422483
+        },
+        "sampleIdx": 17,
+        "title": "N"
+      },
+      {
+        "confidence": 0.8950859,
+        "detectedClass": 21,
+        "id": "0",
+        "location": {
+          "bottom": 74.21278,
+          "left": 50.84176,
+          "right": 81.08512,
+          "top": 19.134525
+        },
+        "sampleIdx": 17,
+        "title": "V"
+      },
+      {
+        "confidence": 0.78112024,
+        "detectedClass": 22,
+        "id": "0",
+        "location": {
+          "bottom": 74.5908,
+          "left": 80.59862,
+          "right": 109.63533,
+          "top": 21.075048
+        },
+        "sampleIdx": 17,
+        "title": "W"
+      },
+      {
+        "confidence": 0.8991009,
+        "detectedClass": 27,
+        "id": "0",
+        "location": {
+          "bottom": 75.84425,
+          "left": 111.90107,
+          "right": 139.97238,
+          "top": 21.758728
+        },
+        "sampleIdx": 17,
+        "title": "1"
+      },
+      {
+        "confidence": 0.7655686,
+        "detectedClass": 13,
+        "id": "0",
+        "location": {
+          "bottom": 75.71356,
+          "left": 141.13858,
+          "right": 172.40344,
+          "top": 22.904774
+        },
+        "sampleIdx": 17,
+        "title": "N"
+      },
+      {
+        "confidence": 0.91062844,
+        "detectedClass": 28,
+        "id": "0",
+        "location": {
+          "bottom": 77.3747,
+          "left": 172.80302,
+          "right": 205.72838,
+          "top": 23.833397
+        },
+        "sampleIdx": 17,
+        "title": "2"
+      },
+      {
+        "confidence": 0.905006,
+        "detectedClass": 29,
+        "id": "0",
+        "location": {
+          "bottom": 79.50138,
+          "left": 203.04999,
+          "right": 236.1207,
+          "top": 24.777227
+        },
+        "sampleIdx": 17,
+        "title": "3"
+      }
+    ],
+    "detectionTime": 1820,
+    "idx": 17,
+    "imageDims": {
+      "height": 1080,
+      "width": 1800
+    },
+    "imageId": "NVW1N23.jpg",
+    "recognitionTime": 492,
+    "textOfSample": "NVW1N23"
+  },
+  {
+    "cdInputDims": {
+      "height": 341,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.9161942,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 255.0,
+          "left": 113.0,
+          "right": 174.0,
+          "top": 226.0
+        },
+        "sampleIdx": 18,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 121,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.9131354,
+        "detectedClass": 15,
+        "id": "0",
+        "location": {
+          "bottom": 94.2048,
+          "left": 12.534969,
+          "right": 45.72775,
+          "top": 33.106125
+        },
+        "sampleIdx": 18,
+        "title": "P"
+      },
+      {
+        "confidence": 0.9164499,
+        "detectedClass": 9,
+        "id": "0",
+        "location": {
+          "bottom": 94.55136,
+          "left": 41.09711,
+          "right": 74.34604,
+          "top": 35.489914
+        },
+        "sampleIdx": 18,
+        "title": "J"
+      },
+      {
+        "confidence": 0.91356057,
+        "detectedClass": 9,
+        "id": "0",
+        "location": {
+          "bottom": 94.67456,
+          "left": 69.244064,
+          "right": 103.99289,
+          "top": 36.398453
+        },
+        "sampleIdx": 18,
+        "title": "J"
+      },
+      {
+        "confidence": 0.9315172,
+        "detectedClass": 35,
+        "id": "0",
+        "location": {
+          "bottom": 96.61166,
+          "left": 111.91459,
+          "right": 149.19522,
+          "top": 37.065468
+        },
+        "sampleIdx": 18,
+        "title": "9"
+      },
+      {
+        "confidence": 0.92784387,
+        "detectedClass": 34,
+        "id": "0",
+        "location": {
+          "bottom": 97.57332,
+          "left": 145.13493,
+          "right": 180.21907,
+          "top": 37.972427
+        },
+        "sampleIdx": 18,
+        "title": "8"
+      },
+      {
+        "confidence": 0.91732734,
+        "detectedClass": 34,
+        "id": "0",
+        "location": {
+          "bottom": 99.60419,
+          "left": 176.54611,
+          "right": 211.18881,
+          "top": 38.939285
+        },
+        "sampleIdx": 18,
+        "title": "8"
+      },
+      {
+        "confidence": 0.91474646,
+        "detectedClass": 35,
+        "id": "0",
+        "location": {
+          "bottom": 103.32736,
+          "left": 205.27652,
+          "right": 244.81244,
+          "top": 39.46045
+        },
+        "sampleIdx": 18,
+        "title": "9"
+      }
+    ],
+    "detectionTime": 1877,
+    "idx": 18,
+    "imageDims": {
+      "height": 452,
+      "width": 678
+    },
+    "imageId": "PJJ9889.jpg",
+    "recognitionTime": 492,
+    "textOfSample": "PJJ9889"
+  },
+  {
+    "cdInputDims": {
+      "height": 319,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.9314874,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 172.0,
+          "left": 328.0,
+          "right": 397.0,
+          "top": 137.0
+        },
+        "sampleIdx": 19,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 129,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.9139866,
+        "detectedClass": 4,
+        "id": "0",
+        "location": {
+          "bottom": 103.94241,
+          "left": 24.012182,
+          "right": 61.02526,
+          "top": 46.972446
+        },
+        "sampleIdx": 19,
+        "title": "E"
+      },
+      {
+        "confidence": 0.9197637,
+        "detectedClass": 10,
+        "id": "0",
+        "location": {
+          "bottom": 100.57741,
+          "left": 55.08174,
+          "right": 87.41139,
+          "top": 47.393646
+        },
+        "sampleIdx": 19,
+        "title": "K"
+      },
+      {
+        "confidence": 0.91486377,
+        "detectedClass": 7,
+        "id": "0",
+        "location": {
+          "bottom": 97.49923,
+          "left": 81.51776,
+          "right": 115.08911,
+          "top": 45.267952
+        },
+        "sampleIdx": 19,
+        "title": "H"
+      },
+      {
+        "confidence": 0.9200519,
+        "detectedClass": 30,
+        "id": "0",
+        "location": {
+          "bottom": 94.83203,
+          "left": 121.228455,
+          "right": 152.69037,
+          "top": 43.806942
+        },
+        "sampleIdx": 19,
+        "title": "4"
+      },
+      {
+        "confidence": 0.91968125,
+        "detectedClass": 35,
+        "id": "0",
+        "location": {
+          "bottom": 92.71779,
+          "left": 146.71625,
+          "right": 177.8421,
+          "top": 41.93988
+        },
+        "sampleIdx": 19,
+        "title": "9"
+      },
+      {
+        "confidence": 0.91431314,
+        "detectedClass": 32,
+        "id": "0",
+        "location": {
+          "bottom": 90.74425,
+          "left": 172.60382,
+          "right": 203.71695,
+          "top": 40.289913
+        },
+        "sampleIdx": 19,
+        "title": "6"
+      },
+      {
+        "confidence": 0.90951204,
+        "detectedClass": 30,
+        "id": "0",
+        "location": {
+          "bottom": 92.34898,
+          "left": 198.3807,
+          "right": 232.25024,
+          "top": 38.32332
+        },
+        "sampleIdx": 19,
+        "title": "4"
+      }
+    ],
+    "detectionTime": 1873,
+    "idx": 19,
+    "imageDims": {
+      "height": 376,
+      "width": 602
+    },
+    "imageId": "EKH4964.jpg",
+    "recognitionTime": 492,
+    "textOfSample": "EKH4964"
+  },
+  {
+    "cdInputDims": {
+      "height": 341,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.9252116,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 247.0,
+          "left": 362.0,
+          "right": 484.0,
+          "top": 200.0
+        },
+        "sampleIdx": 20,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 98,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.8562885,
+        "detectedClass": 15,
+        "id": "0",
+        "location": {
+          "bottom": 89.936615,
+          "left": 20.914703,
+          "right": 52.163055,
+          "top": 33.61761
+        },
+        "sampleIdx": 20,
+        "title": "P"
+      },
+      {
+        "confidence": 0.86681813,
+        "detectedClass": 14,
+        "id": "0",
+        "location": {
+          "bottom": 86.68318,
+          "left": 51.000027,
+          "right": 81.63635,
+          "top": 33.410915
+        },
+        "sampleIdx": 20,
+        "title": "O"
+      },
+      {
+        "confidence": 0.884303,
+        "detectedClass": 23,
+        "id": "0",
+        "location": {
+          "bottom": 84.40006,
+          "left": 80.59629,
+          "right": 111.05093,
+          "top": 32.230766
+        },
+        "sampleIdx": 20,
+        "title": "X"
+      },
+      {
+        "confidence": 0.8890602,
+        "detectedClass": 30,
+        "id": "0",
+        "location": {
+          "bottom": 83.010864,
+          "left": 110.2088,
+          "right": 140.47583,
+          "top": 30.72983
+        },
+        "sampleIdx": 20,
+        "title": "4"
+      },
+      {
+        "confidence": 0.88125294,
+        "detectedClass": 6,
+        "id": "0",
+        "location": {
+          "bottom": 81.03195,
+          "left": 139.85571,
+          "right": 171.284,
+          "top": 29.876755
+        },
+        "sampleIdx": 20,
+        "title": "G"
+      },
+      {
+        "confidence": 0.86035883,
+        "detectedClass": 28,
+        "id": "0",
+        "location": {
+          "bottom": 81.31387,
+          "left": 168.76523,
+          "right": 200.97614,
+          "top": 29.14789
+        },
+        "sampleIdx": 20,
+        "title": "2"
+      },
+      {
+        "confidence": 0.87302047,
+        "detectedClass": 27,
+        "id": "0",
+        "location": {
+          "bottom": 82.1394,
+          "left": 200.43678,
+          "right": 231.52672,
+          "top": 27.9145
+        },
+        "sampleIdx": 20,
+        "title": "1"
+      }
+    ],
+    "detectionTime": 1828,
+    "idx": 20,
+    "imageDims": {
+      "height": 1181,
+      "width": 1772
+    },
+    "imageId": "POX4G21.jpg",
+    "recognitionTime": 492,
+    "textOfSample": "POX4G21"
+  },
+  {
+    "cdInputDims": {
+      "height": 288,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.9347397,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 214.0,
+          "left": 120.0,
+          "right": 182.0,
+          "top": 172.0
+        },
+        "sampleIdx": 21,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 173,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.78831357,
+        "detectedClass": 4,
+        "id": "0",
+        "location": {
+          "bottom": 99.08496,
+          "left": 20.495441,
+          "right": 50.289288,
+          "top": 42.258648
+        },
+        "sampleIdx": 21,
+        "title": "E"
+      },
+      {
+        "confidence": 0.78206605,
+        "detectedClass": 12,
+        "id": "0",
+        "location": {
+          "bottom": 102.1527,
+          "left": 46.28048,
+          "right": 73.62658,
+          "top": 46.873665
+        },
+        "sampleIdx": 21,
+        "title": "M"
+      },
+      {
+        "confidence": 0.85482776,
+        "detectedClass": 20,
+        "id": "0",
+        "location": {
+          "bottom": 107.78457,
+          "left": 70.82801,
+          "right": 97.76824,
+          "top": 52.1874
+        },
+        "sampleIdx": 21,
+        "title": "U"
+      },
+      {
+        "confidence": 0.8485889,
+        "detectedClass": 27,
+        "id": "0",
+        "location": {
+          "bottom": 121.94954,
+          "left": 113.3974,
+          "right": 131.21992,
+          "top": 61.396
+        },
+        "sampleIdx": 21,
+        "title": "1"
+      },
+      {
+        "confidence": 0.86665875,
+        "detectedClass": 34,
+        "id": "0",
+        "location": {
+          "bottom": 130.76785,
+          "left": 134.12912,
+          "right": 164.49393,
+          "top": 71.79111
+        },
+        "sampleIdx": 21,
+        "title": "8"
+      },
+      {
+        "confidence": 0.8666606,
+        "detectedClass": 26,
+        "id": "0",
+        "location": {
+          "bottom": 138.08997,
+          "left": 162.92123,
+          "right": 191.59973,
+          "top": 77.64871
+        },
+        "sampleIdx": 21,
+        "title": "0"
+      },
+      {
+        "confidence": 0.83661425,
+        "detectedClass": 32,
+        "id": "0",
+        "location": {
+          "bottom": 145.17424,
+          "left": 190.77415,
+          "right": 222.48982,
+          "top": 83.9884
+        },
+        "sampleIdx": 21,
+        "title": "6"
+      }
+    ],
+    "detectionTime": 1835,
+    "idx": 21,
+    "imageDims": {
+      "height": 540,
+      "width": 960
+    },
+    "imageId": "EMU1806.jpg",
+    "recognitionTime": 484,
+    "textOfSample": "EMU1806"
+  },
+  {
+    "cdInputDims": {
+      "height": 281,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.88449603,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 176.0,
+          "left": 254.0,
+          "right": 307.0,
+          "top": 156.0
+        },
+        "sampleIdx": 22,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 96,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.90718126,
+        "detectedClass": 11,
+        "id": "0",
+        "location": {
+          "bottom": 86.92,
+          "left": 20.523174,
+          "right": 55.236538,
+          "top": 33.00421
+        },
+        "sampleIdx": 22,
+        "title": "L"
+      },
+      {
+        "confidence": 0.89575446,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 82.65166,
+          "left": 50.317417,
+          "right": 79.11255,
+          "top": 32.66946
+        },
+        "sampleIdx": 22,
+        "title": "A"
+      },
+      {
+        "confidence": 0.9084452,
+        "detectedClass": 20,
+        "id": "0",
+        "location": {
+          "bottom": 79.51787,
+          "left": 76.36343,
+          "right": 103.715645,
+          "top": 31.646883
+        },
+        "sampleIdx": 22,
+        "title": "U"
+      },
+      {
+        "confidence": 0.9160167,
+        "detectedClass": 28,
+        "id": "0",
+        "location": {
+          "bottom": 78.852516,
+          "left": 102.54837,
+          "right": 131.32773,
+          "top": 30.631187
+        },
+        "sampleIdx": 22,
+        "title": "2"
+      },
+      {
+        "confidence": 0.91872793,
+        "detectedClass": 4,
+        "id": "0",
+        "location": {
+          "bottom": 77.461105,
+          "left": 130.12016,
+          "right": 159.02388,
+          "top": 29.904522
+        },
+        "sampleIdx": 22,
+        "title": "E"
+      },
+      {
+        "confidence": 0.91556317,
+        "detectedClass": 34,
+        "id": "0",
+        "location": {
+          "bottom": 76.25686,
+          "left": 156.57489,
+          "right": 185.4815,
+          "top": 29.025122
+        },
+        "sampleIdx": 22,
+        "title": "8"
+      },
+      {
+        "confidence": 0.9099254,
+        "detectedClass": 28,
+        "id": "0",
+        "location": {
+          "bottom": 75.67986,
+          "left": 182.32709,
+          "right": 213.7919,
+          "top": 27.625746
+        },
+        "sampleIdx": 22,
+        "title": "2"
+      }
+    ],
+    "detectionTime": 1879,
+    "idx": 22,
+    "imageDims": {
+      "height": 590,
+      "width": 1073
+    },
+    "imageId": "LAU2E82.jpg",
+    "recognitionTime": 489,
+    "textOfSample": "LAU2E82"
+  },
+  {
+    "cdInputDims": {
+      "height": 384,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.89955074,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 311.0,
+          "left": 264.0,
+          "right": 366.0,
+          "top": 266.0
+        },
+        "sampleIdx": 23,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 112,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.80443686,
+        "detectedClass": 1,
+        "id": "0",
+        "location": {
+          "bottom": 100.67801,
+          "left": 19.182816,
+          "right": 50.593338,
+          "top": 42.50858
+        },
+        "sampleIdx": 23,
+        "title": "B"
+      },
+      {
+        "confidence": 0.8099732,
+        "detectedClass": 2,
+        "id": "0",
+        "location": {
+          "bottom": 97.680565,
+          "left": 51.31117,
+          "right": 82.189415,
+          "top": 40.223686
+        },
+        "sampleIdx": 23,
+        "title": "C"
+      },
+      {
+        "confidence": 0.84537303,
+        "detectedClass": 21,
+        "id": "0",
+        "location": {
+          "bottom": 94.52568,
+          "left": 85.624535,
+          "right": 115.72321,
+          "top": 36.84279
+        },
+        "sampleIdx": 23,
+        "title": "V"
+      },
+      {
+        "confidence": 0.8407981,
+        "detectedClass": 29,
+        "id": "0",
+        "location": {
+          "bottom": 91.25374,
+          "left": 117.22252,
+          "right": 148.45738,
+          "top": 34.945564
+        },
+        "sampleIdx": 23,
+        "title": "3"
+      },
+      {
+        "confidence": 0.8472793,
+        "detectedClass": 6,
+        "id": "0",
+        "location": {
+          "bottom": 87.71108,
+          "left": 148.79773,
+          "right": 179.57971,
+          "top": 32.340477
+        },
+        "sampleIdx": 23,
+        "title": "G"
+      },
+      {
+        "confidence": 0.7791177,
+        "detectedClass": 32,
+        "id": "0",
+        "location": {
+          "bottom": 83.94649,
+          "left": 177.89262,
+          "right": 206.10161,
+          "top": 29.84256
+        },
+        "sampleIdx": 23,
+        "title": "6"
+      },
+      {
+        "confidence": 0.3776846,
+        "detectedClass": 32,
+        "id": "0",
+        "location": {
+          "bottom": 111.0,
+          "left": 196.20483,
+          "right": 222.44449,
+          "top": 105.89891
+        },
+        "sampleIdx": 23,
+        "title": "6"
+      }
+    ],
+    "detectionTime": 1827,
+    "idx": 23,
+    "imageDims": {
+      "height": 1201,
+      "width": 1600
+    },
+    "imageId": "BCV3G65.jpg",
+    "recognitionTime": 491,
+    "textOfSample": "BCV3G66"
+  },
+  {
+    "cdInputDims": {
+      "height": 373,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.9280773,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 268.0,
+          "left": 221.0,
+          "right": 274.0,
+          "top": 239.0
+        },
+        "sampleIdx": 24,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 140,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.87885976,
+        "detectedClass": 5,
+        "id": "0",
+        "location": {
+          "bottom": 115.04732,
+          "left": 33.562424,
+          "right": 67.01229,
+          "top": 53.41994
+        },
+        "sampleIdx": 24,
+        "title": "F"
+      },
+      {
+        "confidence": 0.8559573,
+        "detectedClass": 20,
+        "id": "0",
+        "location": {
+          "bottom": 108.68689,
+          "left": 64.41178,
+          "right": 93.64629,
+          "top": 53.39297
+        },
+        "sampleIdx": 24,
+        "title": "U"
+      },
+      {
+        "confidence": 0.88533115,
+        "detectedClass": 20,
+        "id": "0",
+        "location": {
+          "bottom": 105.155136,
+          "left": 90.66787,
+          "right": 118.290016,
+          "top": 52.137253
+        },
+        "sampleIdx": 24,
+        "title": "U"
+      },
+      {
+        "confidence": 0.8991611,
+        "detectedClass": 26,
+        "id": "0",
+        "location": {
+          "bottom": 103.25594,
+          "left": 116.99103,
+          "right": 144.00409,
+          "top": 50.774254
+        },
+        "sampleIdx": 24,
+        "title": "0"
+      },
+      {
+        "confidence": 0.8809329,
+        "detectedClass": 2,
+        "id": "0",
+        "location": {
+          "bottom": 101.01213,
+          "left": 143.4767,
+          "right": 170.82426,
+          "top": 49.002697
+        },
+        "sampleIdx": 24,
+        "title": "C"
+      },
+      {
+        "confidence": 0.8266734,
+        "detectedClass": 30,
+        "id": "0",
+        "location": {
+          "bottom": 99.693306,
+          "left": 168.40881,
+          "right": 193.6105,
+          "top": 47.33146
+        },
+        "sampleIdx": 24,
+        "title": "4"
+      },
+      {
+        "confidence": 0.7268897,
+        "detectedClass": 33,
+        "id": "0",
+        "location": {
+          "bottom": 98.22167,
+          "left": 188.86581,
+          "right": 218.2557,
+          "top": 45.617622
+        },
+        "sampleIdx": 24,
+        "title": "7"
+      }
+    ],
+    "detectionTime": 1882,
+    "idx": 24,
+    "imageDims": {
+      "height": 700,
+      "width": 960
+    },
+    "imageId": "FUU0C47.jpg",
+    "recognitionTime": 490,
+    "textOfSample": "FUU0C47"
+  },
+  {
+    "cdInputDims": {
+      "height": 287,
+      "width": 512
+    },
+    "cdSampleBoxes": [
+      {
+        "confidence": 0.85703,
+        "detectedClass": 0,
+        "id": "0",
+        "location": {
+          "bottom": 166.0,
+          "left": 198.0,
+          "right": 300.0,
+          "top": 132.0
+        },
+        "sampleIdx": 25,
+        "title": "plate"
+      }
+    ],
+    "crInputDims": {
+      "height": 85,
+      "width": 256
+    },
+    "crSampleBoxes": [
+      {
+        "confidence": 0.90277404,
+        "detectedClass": 13,
+        "id": "0",
+        "location": {
+          "bottom": 67.89832,
+          "left": 17.920044,
+          "right": 47.17266,
+          "top": 22.310614
+        },
+        "sampleIdx": 25,
+        "title": "N"
+      },
+      {
+        "confidence": 0.35087028,
+        "detectedClass": 5,
+        "id": "0",
+        "location": {
+          "bottom": 84.0,
+          "left": 34.305717,
+          "right": 65.08921,
+          "top": 78.177795
+        },
+        "sampleIdx": 25,
+        "title": "F"
+      },
+      {
+        "confidence": 0.9210257,
+        "detectedClass": 10,
+        "id": "0",
+        "location": {
+          "bottom": 67.772964,
+          "left": 47.42455,
+          "right": 76.54329,
+          "top": 23.296188
+        },
+        "sampleIdx": 25,
+        "title": "K"
+      },
+      {
+        "confidence": 0.9270049,
+        "detectedClass": 2,
+        "id": "0",
+        "location": {
+          "bottom": 67.358406,
+          "left": 75.851105,
+          "right": 106.0081,
+          "top": 22.484177
+        },
+        "sampleIdx": 25,
+        "title": "C"
+      },
+      {
+        "confidence": 0.9234769,
+        "detectedClass": 32,
+        "id": "0",
+        "location": {
+          "bottom": 66.22346,
+          "left": 114.69889,
+          "right": 145.37398,
+          "top": 22.734497
+        },
+        "sampleIdx": 25,
+        "title": "6"
+      },
+      {
+        "confidence": 0.9101676,
+        "detectedClass": 31,
+        "id": "0",
+        "location": {
+          "bottom": 65.65991,
+          "left": 144.03009,
+          "right": 174.25366,
+          "top": 22.844484
+        },
+        "sampleIdx": 25,
+        "title": "5"
+      },
+      {
+        "confidence": 0.8903867,
+        "detectedClass": 35,
+        "id": "0",
+        "location": {
+          "bottom": 66.8701,
+          "left": 171.54845,
+          "right": 204.0396,
+          "top": 21.649197
+        },
+        "sampleIdx": 25,
+        "title": "9"
+      }
+    ],
+    "detectionTime": 1879,
+    "idx": 25,
+    "imageDims": {
+      "height": 415,
+      "width": 739
+    },
+    "imageId": "NKC6590.jpg",
+    "recognitionTime": 491,
+    "textOfSample": "NFKC659"
+  }
+]
