@@ -158,7 +158,6 @@ def get_groundtruth(images_dir: Path, labels_dir: Path) -> dict:
 
 
 def scale_gt_boxes(groundtruths_dict: dict, predictions_dict) -> dict:
-
     scaled_groundtruths = {}
 
     gt_copy = groundtruths_dict.copy()
@@ -190,7 +189,7 @@ def scale_gt_boxes(groundtruths_dict: dict, predictions_dict) -> dict:
                     predictions_dict[image_id]["cr_dim"],
                 )
             )
-        
+
         # groundtruths_dict[image_id]["cd_boxes"] = cd_boxes
         # groundtruths_dict[image_id]["cr_boxes"] = cr_boxes
         # groundtruths_dict[image_id]["cd_dim"] = predictions_dict[image_id]["cd_dim"]
@@ -231,7 +230,7 @@ def plot_boxes(
         image2plot = image.copy()
         plate_region = image2plot[y1_cd:y2_cd, x1_cd:x2_cd].copy()
         plate_region = cv.resize(plate_region, (w, h))
-        
+
         print(plate_region.shape)
 
         plt.figure(figsize=(10, 10))

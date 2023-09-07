@@ -8,15 +8,21 @@ from tqdm import tqdm
 
 def intersection_over_union(boxes_preds, boxes_labels, box_format="midpoint"):
     """
-    Calculates intersection over union
+    The function calculates the intersection over union (IoU) between predicted bounding boxes and
+    ground truth bounding boxes.
 
-    Parameters:
-        boxes_preds (tensor): Predictions of Bounding Boxes (BATCH_SIZE, 4)
-        boxes_labels (tensor): Correct Labels of Boxes (BATCH_SIZE, 4)
-        box_format (str): midpoint/corners, if boxes (x,y,w,h) or (x1,y1,x2,y2)
+    Parameters
+    ----------
+    boxes_preds: tensor
+        Predicted bounding boxes of shape (N, 4) where N is the number of bounding boxes and the bounding
+    boxes_labels: tensor
+        Ground truth bounding boxes of shape (N, 4) where N is the number of bounding boxes and the bounding
+    values: "midpoint" or "corners".
 
-    Returns:
-        tensor: Intersection over union for all examples
+    Returns
+    -------
+        the intersection over union (IoU) for all examples.
+
     """
 
     # Slicing idx:idx+1 in order to keep tensor dimensionality
@@ -55,8 +61,8 @@ def intersection_over_union(boxes_preds, boxes_labels, box_format="midpoint"):
 
     return intersection / (box1_area + box2_area - intersection + 1e-6)
 
-def get_levistain_distance(pred, gt):
 
+def get_levistain_distance(pred, gt):
     return lev.distance(pred, gt)
 
 
@@ -64,18 +70,23 @@ def mean_average_precision(
     pred_boxes, true_boxes, iou_threshold=0.5, box_format="midpoint", num_classes=20
 ):
     """
-    Calculates mean average precision 
+    Calculates mean average precision
 
     Parameters:
-        pred_boxes (list): list of lists containing all bboxes with each bboxes
-        specified as [train_idx, class_prediction, prob_score, x1, y1, x2, y2]
-        true_boxes (list): Similar as pred_boxes except all the correct ones 
-        iou_threshold (float): threshold where predicted bboxes is correct
-        box_format (str): "midpoint" or "corners" used to specify bboxes
-        num_classes (int): number of classes
+    ----------
+    pred_boxes (list):
+        list of lists containing all bboxes with each bboxes specified as [train_idx, class_prediction, prob_score, x1, y1, x2, y2]
+    true_boxes (list):
+        Similar as pred_boxes except all the correct ones
+    iou_threshold (float):
+        threshold where predicted bboxes is correct
+    box_format (str):
+        "midpoint" or "corners" used to specify bboxes
+    num_classes (int):
+        number of classes
 
     Returns:
-        float: mAP value across all classes given a specific IoU threshold 
+        float: mAP value across all classes given a specific IoU threshold
     """
     # list storing all AP for respective classes
     average_precisions = []
@@ -84,7 +95,6 @@ def mean_average_precision(
     epsilon = 1e-6
 
     for c in tqdm(range(num_classes), desc="Mean AP calculation"):
-
         detections = []
         ground_truths = []
 
@@ -117,7 +127,7 @@ def mean_average_precision(
         TP = torch.zeros((len(detections)))
         FP = torch.zeros((len(detections)))
         total_true_bboxes = len(ground_truths)
-        
+
         # If none exists for this class then we can safely skip
         if total_true_bboxes == 0:
             continue
@@ -167,7 +177,29 @@ def mean_average_precision(
 
     return sum(average_precisions) / len(average_precisions)
 
-def get_metrics(groundtruths:dict, predictions:dict):
+
+def get_metrics(groundtruths: dict, predictions: dict):
+    """
+    The function `get_metrics` calculates various metrics such as accuracy, average time, and mean
+    average precision for a given set of groundtruths and predictions.
+
+    Parameters
+    ----------
+    groundtruths : dict
+        The `groundtruths` parameter is a dictionary that contains the ground truth information for each
+    image. The keys of the dictionary are the image IDs, and the values are dictionaries that contain
+    the ground truth information for that image.
+
+    predictions : dict
+        The `predictions` parameter is a dictionary that contains the predicted values for each image. The
+    keys of the dictionary are the image IDs, and the values are dictionaries containing the predicted
+    values for that image.
+
+    Returns
+    -------
+        a dictionary containing various metrics such as accuracy, cd_time, cr_time, cd_map, and cr_map.
+
+    """
 
     hits = np.zeros(len(groundtruths))
     cd_times = np.zeros(len(groundtruths))
@@ -179,8 +211,9 @@ def get_metrics(groundtruths:dict, predictions:dict):
     cr_gt_boxes = []
     cr_pred_boxes = []
 
+    lv_distances = []
+
     for i, image_id in enumerate(groundtruths.keys()):
-        
         gt = groundtruths[image_id]
         pred = predictions[image_id]
 
@@ -191,6 +224,10 @@ def get_metrics(groundtruths:dict, predictions:dict):
             hits[i] = 1
         else:
             print(f"{gt['groundtruth']} | {pred['prediction']}")
+
+        lv_distances.append(
+            get_levistain_distance(gt["groundtruth"], pred["prediction"])
+        )
 
         cd_gt_box = list(map(lambda x: [i] + x, gt["cd_boxes"]))
         cd_pred_box = list(map(lambda x: [i] + x, pred["cd_boxes"]))
@@ -205,8 +242,9 @@ def get_metrics(groundtruths:dict, predictions:dict):
     accuracy = hits.mean() * 100
     cd_time = (cd_times.mean(), cd_times.std())
     cr_time = (cr_times.mean(), cr_times.std())
-    cd_map = mean_average_precision(cd_pred_boxes, cd_gt_boxes, 0.5, 'corners', 1)
-    cr_map = mean_average_precision(cr_pred_boxes, cr_gt_boxes, 0.5, 'corners', 36)
+    cd_map = mean_average_precision(cd_pred_boxes, cd_gt_boxes, 0.5, "corners", 1)
+    cr_map = mean_average_precision(cr_pred_boxes, cr_gt_boxes, 0.5, "corners", 36)
+    lv_dist_mean = np.mean(lv_distances)
 
     metrics = {
         "accuracy": f"{accuracy:.2f}%",
@@ -214,6 +252,7 @@ def get_metrics(groundtruths:dict, predictions:dict):
         "cr_time": f"{cr_time[0]:.2f} ± {cr_time[1]:.2f} ms",
         "cd_map": f"{cd_map:.2f}",
         "cr_map": f"{cr_map:.2f}",
+        "lv_distance": f"{lv_dist_mean:.2f}"
     }
 
     return metrics
