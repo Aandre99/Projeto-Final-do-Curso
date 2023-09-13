@@ -57,6 +57,44 @@ def plot_results(images_folder: Path):
         plt.imshow(patch2plot)
         plt.show()
 
+def plot_boxes(samples: dict, images_dir: Path, n_samples: int = 10):
+    
+    for i, (image_id, image_info) in enumerate(samples.items()):
+
+        if i == n_samples:
+            break
+        
+        image2plot = cv.imread(str(images_dir / image_id))
+        image2plot = cv.cvtColor(image2plot, cv.COLOR_BGR2RGB)
+        
+        plate2plot = None
+        
+        for box in image_info['cd_boxes']:
+            
+            x1, y1, x2, y2 = box[2:]
+            
+            image2plot = cv.rectangle(
+                image2plot, (int(x1), int(y1)), (int(x2), int(y2)), (0, 0, 255), 3
+            )
+            
+            plate2plot = image2plot[int(y1) : int(y2), int(x1) : int(x2)].copy()
+        
+        for box in image_info['cr_boxes']:
+            x1, y1, x2, y2 = box[2:]
+            
+            plate2plot = cv.rectangle(
+                plate2plot, (int(x1), int(y1)), (int(x2), int(y2)), (0, 0, 255), 1
+            )
+        
+        
+        plt.subplot(1, 2, 1)
+        plt.imshow(image2plot)
+        
+        plt.subplot(1, 2, 2)
+        plt.imshow(plate2plot)
+        
+        plt.show()
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

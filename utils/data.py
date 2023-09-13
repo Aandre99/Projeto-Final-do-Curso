@@ -92,6 +92,8 @@ def get_predictions(labels_dir, data: list) -> dict:
         cr_input_dim = data_i["crInputDims"]
         cr_inference_time = data_i["recognitionTime"]
 
+        print(f"Convertendo boxes {cr_input_dim} -> {gt_plate_dim}")
+        
         cr_boxes = sampleBoxes_to_predictions(
             data_i["crSampleBoxes"], cr_input_dim, gt_plate_dim
         )
@@ -134,7 +136,7 @@ def load_detections_from_file(detections_path: Path) -> dict:
 def get_groundtruth(images_dir: Path, labels_dir: Path) -> dict:
     groundtruth = {}
 
-    for image_path in images_dir.glob("*.jpg"):
+    for image_path in images_dir.rglob("*.[jJ][pP][gG]"):
         image_id = image_path.stem
 
         image = cv.imread(str(image_path))
@@ -157,27 +159,14 @@ def get_groundtruth(images_dir: Path, labels_dir: Path) -> dict:
     return groundtruth
 
 
-def scale_gt_boxes(groundtruths_dict: dict, predictions_dict) -> dict:
-    scaled_groundtruths = {}
+def scale_pred_boxes(groundtruths_dict: dict, predictions_dict) -> dict:
+    
+    scaled_predictions = {}
 
-    gt_copy = groundtruths_dict.copy()
+    pred_copy = predictions_dict.copy()
 
-    for image_id, image_info in gt_copy.items():
-        if image_id not in predictions_dict:
-            continue
-
-        cd_boxes = []
-        for cd_box in image_info["cd_boxes"]:
-            cls, conf, x1, y1, x2, y2 = cd_box
-            cd_boxes.append(
-                [cls, conf]
-                + box_scaler(
-                    [x1, y1, x2, y2],
-                    image_info["cd_dim"],
-                    predictions_dict[image_id]["cd_dim"],
-                )
-            )
-
+    for image_id, image_info in pred_copy.items():
+        
         cr_boxes = []
         for cr_box in image_info["cr_boxes"]:
             cls, conf, x1, y1, x2, y2 = cr_box
@@ -186,24 +175,21 @@ def scale_gt_boxes(groundtruths_dict: dict, predictions_dict) -> dict:
                 + box_scaler(
                     [x1, y1, x2, y2],
                     image_info["cr_dim"],
-                    predictions_dict[image_id]["cr_dim"],
+                    groundtruths_dict[image_id]["cr_dim"],
                 )
             )
 
-        # groundtruths_dict[image_id]["cd_boxes"] = cd_boxes
-        # groundtruths_dict[image_id]["cr_boxes"] = cr_boxes
-        # groundtruths_dict[image_id]["cd_dim"] = predictions_dict[image_id]["cd_dim"]
-        # groundtruths_dict[image_id]["cr_dim"] = predictions_dict[image_id]["cr_dim"]
-
-        scaled_groundtruths[image_id] = {
-            "groundtruth": image_info["groundtruth"],
+        scaled_predictions[image_id] = {
+            "prediction": image_info["prediction"],
             "cd_dim": predictions_dict[image_id]["cd_dim"],
             "cr_dim": predictions_dict[image_id]["cr_dim"],
-            "cd_boxes": cd_boxes,
+            "cd_boxes": predictions_dict[image_id]["cd_boxes"],
             "cr_boxes": cr_boxes,
+            "cd_time": predictions_dict[image_id]["cd_time"],
+            "cr_time": predictions_dict[image_id]["cr_time"],
         }
 
-    return scaled_groundtruths
+    return scaled_predictions
 
 
 def plot_boxes(
