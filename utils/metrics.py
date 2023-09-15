@@ -2,180 +2,192 @@ from collections import Counter
 
 import Levenshtein as lev
 import numpy as np
-import torch
 from tqdm import tqdm
 
 
-def intersection_over_union(boxes_preds, boxes_labels, box_format="midpoint"):
+def get_levistain_distance(pred: str, gt: str) -> int:
     """
-    The function calculates the intersection over union (IoU) between predicted bounding boxes and
-    ground truth bounding boxes.
+    This function calculates the Levenshtein distance between two strings.
 
-    Parameters
-    ----------
-    boxes_preds: tensor
-        Predicted bounding boxes of shape (N, 4) where N is the number of bounding boxes and the bounding
-    boxes_labels: tensor
-        Ground truth bounding boxes of shape (N, 4) where N is the number of bounding boxes and the bounding
-    values: "midpoint" or "corners".
+    Args:
+        pred (str): The predicted string.
+        gt (str): The ground truth string.
 
-    Returns
-    -------
-        the intersection over union (IoU) for all examples.
-
+    Returns:
+        The Levenshtein distance between the two strings.
     """
-
-    # Slicing idx:idx+1 in order to keep tensor dimensionality
-    # Doing ... in indexing if there would be additional dimensions
-    # Like for Yolo algorithm which would have (N, S, S, 4) in shape
-
-    if box_format == "midpoint":
-        box1_x1 = boxes_preds[..., 0:1] - boxes_preds[..., 2:3] / 2
-        box1_y1 = boxes_preds[..., 1:2] - boxes_preds[..., 3:4] / 2
-        box1_x2 = boxes_preds[..., 0:1] + boxes_preds[..., 2:3] / 2
-        box1_y2 = boxes_preds[..., 1:2] + boxes_preds[..., 3:4] / 2
-        box2_x1 = boxes_labels[..., 0:1] - boxes_labels[..., 2:3] / 2
-        box2_y1 = boxes_labels[..., 1:2] - boxes_labels[..., 3:4] / 2
-        box2_x2 = boxes_labels[..., 0:1] + boxes_labels[..., 2:3] / 2
-        box2_y2 = boxes_labels[..., 1:2] + boxes_labels[..., 3:4] / 2
-
-    elif box_format == "corners":
-        box1_x1 = boxes_preds[..., 0:1]
-        box1_y1 = boxes_preds[..., 1:2]
-        box1_x2 = boxes_preds[..., 2:3]
-        box1_y2 = boxes_preds[..., 3:4]
-        box2_x1 = boxes_labels[..., 0:1]
-        box2_y1 = boxes_labels[..., 1:2]
-        box2_x2 = boxes_labels[..., 2:3]
-        box2_y2 = boxes_labels[..., 3:4]
-
-    x1 = torch.max(box1_x1, box2_x1)
-    y1 = torch.max(box1_y1, box2_y1)
-    x2 = torch.min(box1_x2, box2_x2)
-    y2 = torch.min(box1_y2, box2_y2)
-
-    # Need clamp(0) in case they do not intersect, then we want intersection to be 0
-    intersection = (x2 - x1).clamp(0) * (y2 - y1).clamp(0)
-    box1_area = abs((box1_x2 - box1_x1) * (box1_y2 - box1_y1))
-    box2_area = abs((box2_x2 - box2_x1) * (box2_y2 - box2_y1))
-
-    return intersection / (box1_area + box2_area - intersection + 1e-6)
-
-
-def get_levistain_distance(pred, gt):
     return lev.distance(pred, gt)
 
 
-def mean_average_precision(
-    pred_boxes, true_boxes, iou_threshold=0.5, box_format="midpoint", num_classes=20
-):
+def filter_boxes_class(boxes: list, class_id: int) -> list:
     """
-    Calculates mean average precision
+    This function filters the boxes by class.
 
-    Parameters:
-    ----------
-    pred_boxes (list):
-        list of lists containing all bboxes with each bboxes specified as [train_idx, class_prediction, prob_score, x1, y1, x2, y2]
-    true_boxes (list):
-        Similar as pred_boxes except all the correct ones
-    iou_threshold (float):
-        threshold where predicted bboxes is correct
-    box_format (str):
-        "midpoint" or "corners" used to specify bboxes
-    num_classes (int):
-        number of classes
+    Args:
+        boxes (list): A list of boxes.
+        class_id (int): The class id.
 
     Returns:
-        float: mAP value across all classes given a specific IoU threshold
+        A list of boxes filtered by class.
     """
-    # list storing all AP for respective classes
-    average_precisions = []
 
-    # used for numerical stability later on
-    epsilon = 1e-6
+    filtered_boxes = []
+    for detection in boxes:
+        if detection[1] == class_id:
+            filtered_boxes.append(detection)
+    return filtered_boxes
 
-    for c in tqdm(range(num_classes), desc="Mean AP calculation"):
-        detections = []
-        ground_truths = []
 
-        # Go through all predictions and targets,
-        # and only add the ones that belong to the
-        # current class c
-        for detection in pred_boxes:
-            if detection[1] == c:
-                detections.append(detection)
+def intersection_over_union(boxes_preds, boxes_labels):
+    """
+    This function calculates the intersection over union (IoU) between two boxes.
 
-        for true_box in true_boxes:
-            if true_box[1] == c:
-                ground_truths.append(true_box)
+    Args:
+        boxes_preds (list): A list of predicted boxes on [x1, y1, x2, y2] format.
+        boxes_labels (list): A list of ground truth boxes on [x1, y1, x2, y2] format.
 
-        # find the amount of bboxes for each training example
-        # Counter here finds how many ground truth bboxes we get
-        # for each training example, so let's say img 0 has 3,
-        # img 1 has 5 then we will obtain a dictionary with:
-        # amount_bboxes = {0:3, 1:5}
-        amount_bboxes = Counter([gt[0] for gt in ground_truths])
+    Returns:
+        The IoU between the two boxes.
+    """
 
-        # We then go through each key, val in this dictionary
-        # and convert to the following (w.r.t same example):
-        # ammount_bboxes = {0:torch.tensor[0,0,0], 1:torch.tensor[0,0,0,0,0]}
-        for key, val in amount_bboxes.items():
-            amount_bboxes[key] = torch.zeros(val)
+    if boxes_preds.ndim == 1:
+        boxes_preds = boxes_preds.reshape(1, -1)
+    if boxes_labels.ndim == 1:
+        boxes_labels = boxes_labels.reshape(1, -1)
 
-        # sort by box probabilities which is index 2
-        detections.sort(key=lambda x: x[2], reverse=True)
-        TP = torch.zeros((len(detections)))
-        FP = torch.zeros((len(detections)))
-        total_true_bboxes = len(ground_truths)
+    box1_x1, box1_y1, box1_x2, box1_y2 = (
+        boxes_preds[:, 0],
+        boxes_preds[:, 1],
+        boxes_preds[:, 2],
+        boxes_preds[:, 3],
+    )
 
-        # If none exists for this class then we can safely skip
-        if total_true_bboxes == 0:
-            continue
+    box2_x1, box2_y1, box2_x2, box2_y2 = (
+        boxes_labels[:, 0],
+        boxes_labels[:, 1],
+        boxes_labels[:, 2],
+        boxes_labels[:, 3],
+    )
 
-        for detection_idx, detection in enumerate(detections):
-            # Only take out the ground_truths that have the same
-            # training idx as detection
-            ground_truth_img = [
-                bbox for bbox in ground_truths if bbox[0] == detection[0]
-            ]
+    x1 = np.maximum(box1_x1, box2_x1)
+    y1 = np.maximum(box1_y1, box2_y1)
+    x2 = np.minimum(box1_x2, box2_x2)
+    y2 = np.minimum(box1_y2, box2_y2)
 
-            num_gts = len(ground_truth_img)
-            best_iou = 0
+    intersection = np.maximum(0, x2 - x1) * np.maximum(0, y2 - y1)
 
-            for idx, gt in enumerate(ground_truth_img):
-                iou = intersection_over_union(
-                    torch.tensor(detection[3:]),
-                    torch.tensor(gt[3:]),
-                    box_format=box_format,
-                )
+    box1_area = np.abs((box1_x2 - box1_x1) * (box1_y2 - box1_y1))
+    box2_area = np.abs((box2_x2 - box2_x1) * (box2_y2 - box2_y1))
 
-                if iou > best_iou:
-                    best_iou = iou
-                    best_gt_idx = idx
+    iou = intersection / (box1_area + box2_area - intersection + 1e-6)
 
-            if best_iou > iou_threshold:
-                # only detect ground truth detection once
-                if amount_bboxes[detection[0]][best_gt_idx] == 0:
-                    # true positive and add this bounding box to seen
-                    TP[detection_idx] = 1
-                    amount_bboxes[detection[0]][best_gt_idx] = 1
+    return iou
+
+
+def calculate_average_precision(precision, recall):
+    """
+    Calculates the average precision (AP) given precision and recall values.
+
+    Args:
+        precision (list): A list of precision values.
+        recall (list): A list of recall values.
+
+    Returns:
+        The average precision (AP).
+    """
+    m_precision = np.concatenate(([0.0], precision, [0.0]))
+    m_recall = np.concatenate(([0.0], recall, [1.0]))
+
+    for i in range(len(m_precision) - 2, -1, -1):
+        m_precision[i] = max(m_precision[i], m_precision[i + 1])
+
+    indices = np.where(m_recall[1:] != m_recall[:-1])[0] + 1
+    ap = np.sum((m_recall[indices] - m_recall[indices - 1]) * m_precision[indices])
+    return ap
+
+
+def compute_map(
+    pred_boxes: list,
+    true_boxes: list,
+    iou_thresholds: list = [0.5],
+    num_classes: int = 1,
+) -> float:
+    """
+    Calculates mean average precision (mAP) for a range of IoU thresholds.
+
+    Args:
+    ----------
+    pred_boxes (list): List of predicted bounding boxes.
+    true_boxes (list): List of ground truth bounding boxes.
+    iou_thresholds (list): List of IoU thresholds to compute mAP for.s
+    num_classes (int): Number of classes.
+
+    Returns:
+        dict: mAP values for each IoU threshold.
+    """
+    mAPs = {}
+
+    for iou_threshold in iou_thresholds:
+        average_precisions = []
+        epsilon = 1e-6
+
+        for c in range(num_classes):
+            detections = filter_boxes_class(pred_boxes, c)
+            ground_truths = filter_boxes_class(true_boxes, c)
+
+            amount_bboxes = Counter([gt[0] for gt in ground_truths])
+
+            for key, val in amount_bboxes.items():
+                amount_bboxes[key] = np.zeros(val)
+
+            detections.sort(key=lambda x: x[2], reverse=True)
+
+            TP = np.zeros((len(detections)))
+            FP = np.zeros((len(detections)))
+
+            total_true_bboxes = len(ground_truths)
+
+            if total_true_bboxes == 0:
+                continue
+
+            for detection_idx, detection in enumerate(detections):
+                ground_truth_img = [
+                    bbox for bbox in ground_truths if bbox[0] == detection[0]
+                ]
+
+                num_gts = len(ground_truth_img)
+                best_iou = 0
+
+                for idx, gt in enumerate(ground_truth_img):
+                    iou = intersection_over_union(
+                        np.array(detection[3:]), np.array(gt[3:])
+                    )
+
+                    if iou > best_iou:
+                        best_iou = iou
+                        best_gt_idx = idx
+
+                if best_iou > iou_threshold:
+                    if amount_bboxes[detection[0]][best_gt_idx] == 0:
+                        TP[detection_idx] = 1
+                        amount_bboxes[detection[0]][best_gt_idx] = 1
+                    else:
+                        FP[detection_idx] = 1
+
                 else:
                     FP[detection_idx] = 1
 
-            # if IOU is lower then the detection is a false positive
-            else:
-                FP[detection_idx] = 1
+            TP_cumsum = np.cumsum(TP)
+            FP_cumsum = np.cumsum(FP)
+            recalls = TP_cumsum / (total_true_bboxes + epsilon)
+            precisions = TP_cumsum / (TP_cumsum + FP_cumsum + epsilon)
+            precisions = np.concatenate((np.array([1]), precisions))
+            recalls = np.concatenate((np.array([0]), recalls))
+            average_precisions.append(np.trapz(precisions, recalls))
 
-        TP_cumsum = torch.cumsum(TP, dim=0)
-        FP_cumsum = torch.cumsum(FP, dim=0)
-        recalls = TP_cumsum / (total_true_bboxes + epsilon)
-        precisions = TP_cumsum / (TP_cumsum + FP_cumsum + epsilon)
-        precisions = torch.cat((torch.tensor([1]), precisions))
-        recalls = torch.cat((torch.tensor([0]), recalls))
-        # torch.trapz for numerical integration
-        average_precisions.append(torch.trapz(precisions, recalls))
+        mAPs[iou_threshold] = sum(average_precisions) / len(average_precisions)
 
-    return sum(average_precisions) / len(average_precisions)
+    return np.mean(list(mAPs.values()))
 
 
 def get_metrics(groundtruths: dict, predictions: dict):
@@ -240,19 +252,19 @@ def get_metrics(groundtruths: dict, predictions: dict):
         cr_pred_boxes.extend(cr_pred_box)
 
     accuracy = hits.mean() * 100
-    cd_time = (cd_times.mean(), cd_times.std())
-    cr_time = (cr_times.mean(), cr_times.std())
-    cd_map = mean_average_precision(cd_pred_boxes, cd_gt_boxes, 0.5, "corners", 1)
-    cr_map = mean_average_precision(cr_pred_boxes, cr_gt_boxes, 0.5, "corners", 36)
+    #cd_time = (cd_times.mean(), cd_times.std())
+    #cr_time = (cr_times.mean(), cr_times.std())
+    cd_map = compute_map(cd_pred_boxes, cd_gt_boxes, np.arange(0.5, 1.0, 0.05), 1)
+    cr_map = compute_map(cr_pred_boxes, cr_gt_boxes, np.arange(0.5, 1.0, 0.05), 36)
     lv_dist_mean = np.mean(lv_distances)
 
     metrics = {
         "accuracy": f"{accuracy:.2f}%",
-        "cd_time": f"{cd_time[0]:.2f} ± {cd_time[1]:.2f} ms",
-        "cr_time": f"{cr_time[0]:.2f} ± {cr_time[1]:.2f} ms",
-        "cd_map": f"{cd_map:.2f}",
-        "cr_map": f"{cr_map:.2f}",
-        "lv_distance": f"{lv_dist_mean:.2f}"
+     #   "cd_time": f"{cd_time[0]:.2f} ± {cd_time[1]:.2f} ms",
+     #   "cr_time": f"{cr_time[0]:.2f} ± {cr_time[1]:.2f} ms",
+        "CD mAP@0.5:0.95": f"{cd_map:.2f}",
+        "CR mAP@0.5:0.95": f"{cr_map:.2f}",
+        "lv_distance": f"{lv_dist_mean:.2f}",
     }
 
     return metrics

@@ -55,7 +55,7 @@ def sampleBoxes_to_predictions(
         x2 = sample_box["location"]["right"]
         y2 = sample_box["location"]["bottom"]
 
-        box = [cls, conf] + box_scaler([x1, y1, x2, y2], origDims, targetDims)
+        box = [cls, conf] + [x1, y1, x2, y2]
         boxes.append(box)
 
     return boxes
@@ -63,12 +63,9 @@ def sampleBoxes_to_predictions(
 
 def get_plate_dim(labels_dir: Path, image_id: str):
     labels_path = labels_dir / (Path(image_id).stem + "_cr.txt")
-
     with open(labels_path, "r") as f:
         labels = f.readlines()
-
     w, h = labels[0].split(" ")[0].split(",")
-
     return {"width": int(w), "height": int(h)}
 
 
@@ -79,7 +76,6 @@ def get_predictions(labels_dir, data: list) -> dict:
         data_i = data[i]
 
         image_id = data_i["imageId"]
-        image_dim = data_i["imageDims"]
         prediction = data_i["textOfSample"]
         gt_plate_dim = get_plate_dim(labels_dir, image_id)
 
@@ -92,8 +88,6 @@ def get_predictions(labels_dir, data: list) -> dict:
         cr_input_dim = data_i["crInputDims"]
         cr_inference_time = data_i["recognitionTime"]
 
-        print(f"Convertendo boxes {cr_input_dim} -> {gt_plate_dim}")
-        
         cr_boxes = sampleBoxes_to_predictions(
             data_i["crSampleBoxes"], cr_input_dim, gt_plate_dim
         )
@@ -159,14 +153,12 @@ def get_groundtruth(images_dir: Path, labels_dir: Path) -> dict:
     return groundtruth
 
 
-def scale_pred_boxes(groundtruths_dict: dict, predictions_dict) -> dict:
-    
+def fit_pred_boxes_to_gt_boxes(groundtruths_dict: dict, predictions_dict) -> dict:
     scaled_predictions = {}
 
     pred_copy = predictions_dict.copy()
 
     for image_id, image_info in pred_copy.items():
-        
         cr_boxes = []
         for cr_box in image_info["cr_boxes"]:
             cls, conf, x1, y1, x2, y2 = cr_box
@@ -192,48 +184,44 @@ def scale_pred_boxes(groundtruths_dict: dict, predictions_dict) -> dict:
     return scaled_predictions
 
 
-def plot_boxes(
+def compare_boxes(
     images_dir: Path,
-    image_id: str,
-    cd_input_dim: dict,
-    cr_input_dim: dict,
-    cd_boxes: list[float],
-    cr_boxes: list[float],
+    predictions: dict,
+    groundtruths: dict,
+    n_samples: int = 10,
 ):
-    raw_image = cv.imread(str(images_dir / image_id))
-    raw_image = cv.cvtColor(raw_image, cv.COLOR_BGR2RGB)
+    count = 0
 
-    W, H = cd_input_dim["width"], cd_input_dim["height"]
-    w, h = cr_input_dim["width"], cr_input_dim["height"]
+    for image_id, image_info in groundtruths.items():
+        if count == n_samples:
+            break
 
-    print(W, H)
+        image = cv.imread(str(images_dir / image_id))
+        image = cv.cvtColor(image, cv.COLOR_BGR2RGB)
 
-    image = cv.resize(raw_image, (W, H))
+        for cd_box in image_info["cd_boxes"]:
+            cls, conf, x1, y1, x2, y2 = cd_box
+            plate = image[int(y1) : int(y2), int(x1) : int(x2)].copy()
 
-    for cd_box in cd_boxes:
-        _, _, x1_cd, y1_cd, x2_cd, y2_cd = list(map(round, cd_box))
+            gt_cr_boxes = groundtruths[image_id]["cr_boxes"]
+            pred_cr_boxes = predictions[image_id]["cr_boxes"]
 
-        image2plot = image.copy()
-        plate_region = image2plot[y1_cd:y2_cd, x1_cd:x2_cd].copy()
-        plate_region = cv.resize(plate_region, (w, h))
+            for gt_cr_box in gt_cr_boxes:
+                cls, conf, x1, y1, x2, y2 = gt_cr_box
 
-        print(plate_region.shape)
+                plate = cv.rectangle(
+                    plate, (int(x1), int(y1)), (int(x2), int(y2)), (255, 0, 0), 1
+                )
 
-        plt.figure(figsize=(10, 10))
-        plt.subplot(1, 2, 1)
-        plt.imshow(
-            cv.rectangle(image2plot, (x1_cd, y1_cd), (x2_cd, y2_cd), (255, 0, 0), 3)
-        )
+            for pred_cr_box in pred_cr_boxes:
+                cls, conf, x1, y1, x2, y2 = pred_cr_box
+                plate = cv.rectangle(
+                    plate, (int(x1), int(y1)), (int(x2), int(y2)), (0, 255, 0), 1
+                )
 
-        plt.subplot(1, 2, 2)
-        for cr_box in cr_boxes:
-            _, _, x1_cr, y1_cr, x2_cr, y2_cr = list(map(round, cr_box))
-            plate_region = cv.rectangle(
-                plate_region, (x1_cr, y1_cr), (x2_cr, y2_cr), (255, 0, 0), 1
-            )
-
-        plt.imshow(plate_region)
-        plt.show()
+            plt.imshow(plate)
+            plt.show()
+            count += 1
 
 
 if __name__ == "__main__":

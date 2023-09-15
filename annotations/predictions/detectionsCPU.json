@@ -116,14 +116,10 @@
         "title": "0"
       }
     ],
-    "detectionTime": 1990,
+    "detectionTime": 2010,
     "idx": 0,
-    "imageDims": {
-      "height": 747,
-      "width": 890
-    },
     "imageId": "GCF4E80.jpg",
-    "recognitionTime": 538,
+    "recognitionTime": 567,
     "textOfSample": "GCF4E80"
   },
   {
@@ -243,14 +239,10 @@
         "title": "4"
       }
     ],
-    "detectionTime": 1880,
+    "detectionTime": 1906,
     "idx": 1,
-    "imageDims": {
-      "height": 380,
-      "width": 536
-    },
     "imageId": "PLL3J74.jpg",
-    "recognitionTime": 492,
+    "recognitionTime": 494,
     "textOfSample": "PLL3J74"
   },
   {
@@ -370,14 +362,10 @@
         "title": "8"
       }
     ],
-    "detectionTime": 1840,
+    "detectionTime": 1886,
     "idx": 2,
-    "imageDims": {
-      "height": 655,
-      "width": 984
-    },
     "imageId": "EXW2688.jpg",
-    "recognitionTime": 492,
+    "recognitionTime": 498,
     "textOfSample": "EXW2688"
   },
   {
@@ -497,14 +485,10 @@
         "title": "1"
       }
     ],
-    "detectionTime": 1843,
+    "detectionTime": 1842,
     "idx": 3,
-    "imageDims": {
-      "height": 655,
-      "width": 984
-    },
     "imageId": "OYS8951.jpg",
-    "recognitionTime": 492,
+    "recognitionTime": 509,
     "textOfSample": "OYS8951"
   },
   {
@@ -624,14 +608,10 @@
         "title": "4"
       }
     ],
-    "detectionTime": 1893,
+    "detectionTime": 1891,
     "idx": 4,
-    "imageDims": {
-      "height": 502,
-      "width": 774
-    },
     "imageId": "FWW5J24.jpg",
-    "recognitionTime": 486,
+    "recognitionTime": 492,
     "textOfSample": "FWW5J24"
   },
   {
@@ -751,14 +731,10 @@
         "title": "4"
       }
     ],
-    "detectionTime": 1834,
+    "detectionTime": 1829,
     "idx": 5,
-    "imageDims": {
-      "height": 773,
-      "width": 1160
-    },
     "imageId": "PLL8J14.jpg",
-    "recognitionTime": 492,
+    "recognitionTime": 491,
     "textOfSample": "PLL8J14"
   },
   {
@@ -878,14 +854,10 @@
         "title": "3"
       }
     ],
-    "detectionTime": 1883,
+    "detectionTime": 1887,
     "idx": 6,
-    "imageDims": {
-      "height": 448,
-      "width": 685
-    },
     "imageId": "JHW6773.jpg",
-    "recognitionTime": 492,
+    "recognitionTime": 498,
     "textOfSample": "JHW6773"
   },
   {
@@ -1005,12 +977,8 @@
         "title": "8"
       }
     ],
-    "detectionTime": 1880,
+    "detectionTime": 1833,
     "idx": 7,
-    "imageDims": {
-      "height": 1333,
-      "width": 1999
-    },
     "imageId": "CSZ3B78.jpg",
     "recognitionTime": 493,
     "textOfSample": "CSZ3B78"
@@ -1132,14 +1100,10 @@
         "title": "8"
       }
     ],
-    "detectionTime": 1883,
+    "detectionTime": 1894,
     "idx": 8,
-    "imageDims": {
-      "height": 480,
-      "width": 640
-    },
     "imageId": "BBQ1898.jpg",
-    "recognitionTime": 492,
+    "recognitionTime": 494,
     "textOfSample": "BBQ1898"
   },
   {
@@ -1259,14 +1223,10 @@
         "title": "0"
       }
     ],
-    "detectionTime": 1889,
+    "detectionTime": 1838,
     "idx": 9,
-    "imageDims": {
-      "height": 446,
-      "width": 687
-    },
     "imageId": "KPW5380.jpg",
-    "recognitionTime": 488,
+    "recognitionTime": 494,
     "textOfSample": "KPW5380"
   },
   {
@@ -1386,14 +1346,10 @@
         "title": "2"
       }
     ],
-    "detectionTime": 1835,
+    "detectionTime": 1837,
     "idx": 10,
-    "imageDims": {
-      "height": 652,
-      "width": 1086
-    },
     "imageId": "LEQ4272.jpg",
-    "recognitionTime": 491,
+    "recognitionTime": 494,
     "textOfSample": "LEQ4272"
   },
   {
@@ -1513,14 +1469,10 @@
         "title": "7"
       }
     ],
-    "detectionTime": 1836,
+    "detectionTime": 1841,
     "idx": 11,
-    "imageDims": {
-      "height": 3216,
-      "width": 4288
-    },
     "imageId": "ECT1247.jpg",
-    "recognitionTime": 492,
+    "recognitionTime": 491,
     "textOfSample": "ECT1247"
   },
   {
@@ -1640,14 +1592,10 @@
         "title": "7"
       }
     ],
-    "detectionTime": 1840,
+    "detectionTime": 1891,
     "idx": 12,
-    "imageDims": {
-      "height": 655,
-      "width": 984
-    },
     "imageId": "PCC3157.jpg",
-    "recognitionTime": 491,
+    "recognitionTime": 495,
     "textOfSample": "PCC3157"
   },
   {
@@ -1767,14 +1715,10 @@
         "title": "4"
       }
     ],
-    "detectionTime": 1838,
+    "detectionTime": 1843,
     "idx": 13,
-    "imageDims": {
-      "height": 690,
-      "width": 1024
-    },
     "imageId": "FTL0784.jpg",
-    "recognitionTime": 485,
+    "recognitionTime": 487,
     "textOfSample": "FTL0784"
   },
   {
@@ -1894,14 +1838,10 @@
         "title": "4"
       }
     ],
-    "detectionTime": 1889,
+    "detectionTime": 1844,
     "idx": 14,
-    "imageDims": {
-      "height": 433,
-      "width": 649
-    },
     "imageId": "ABC0234.jpg",
-    "recognitionTime": 493,
+    "recognitionTime": 495,
     "textOfSample": "ABC0234"
   },
   {
@@ -2021,14 +1961,10 @@
         "title": "5"
       }
     ],
-    "detectionTime": 1831,
+    "detectionTime": 1835,
     "idx": 15,
-    "imageDims": {
-      "height": 768,
-      "width": 1280
-    },
     "imageId": "CRV2885.jpg",
-    "recognitionTime": 491,
+    "recognitionTime": 494,
     "textOfSample": "CRV2885"
   },
   {
@@ -2135,14 +2071,10 @@
         "title": "4"
       }
     ],
-    "detectionTime": 1886,
+    "detectionTime": 1844,
     "idx": 16,
-    "imageDims": {
-      "height": 590,
-      "width": 1024
-    },
     "imageId": "VWB1234.jpg",
-    "recognitionTime": 492,
+    "recognitionTime": 493,
     "textOfSample": "VWB234"
   },
   {
@@ -2262,14 +2194,10 @@
         "title": "3"
       }
     ],
-    "detectionTime": 1829,
+    "detectionTime": 1827,
     "idx": 17,
-    "imageDims": {
-      "height": 1080,
-      "width": 1800
-    },
     "imageId": "NVW1N23.jpg",
-    "recognitionTime": 493,
+    "recognitionTime": 490,
     "textOfSample": "NVW1N23"
   },
   {
@@ -2389,14 +2317,10 @@
         "title": "9"
       }
     ],
-    "detectionTime": 1893,
+    "detectionTime": 1898,
     "idx": 18,
-    "imageDims": {
-      "height": 452,
-      "width": 678
-    },
     "imageId": "PJJ9889.jpg",
-    "recognitionTime": 491,
+    "recognitionTime": 494,
     "textOfSample": "PJJ9889"
   },
   {
@@ -2516,14 +2440,10 @@
         "title": "4"
       }
     ],
-    "detectionTime": 1890,
+    "detectionTime": 1887,
     "idx": 19,
-    "imageDims": {
-      "height": 376,
-      "width": 602
-    },
     "imageId": "EKH4964.jpg",
-    "recognitionTime": 487,
+    "recognitionTime": 495,
     "textOfSample": "EKH4964"
   },
   {
@@ -2643,12 +2563,8 @@
         "title": "1"
       }
     ],
-    "detectionTime": 1833,
+    "detectionTime": 1835,
     "idx": 20,
-    "imageDims": {
-      "height": 1181,
-      "width": 1772
-    },
     "imageId": "POX4G21.jpg",
     "recognitionTime": 493,
     "textOfSample": "POX4G21"
@@ -2770,14 +2686,10 @@
         "title": "6"
       }
     ],
-    "detectionTime": 1849,
+    "detectionTime": 1848,
     "idx": 21,
-    "imageDims": {
-      "height": 540,
-      "width": 960
-    },
     "imageId": "EMU1806.jpg",
-    "recognitionTime": 488,
+    "recognitionTime": 492,
     "textOfSample": "EMU1806"
   },
   {
@@ -2897,14 +2809,10 @@
         "title": "2"
       }
     ],
-    "detectionTime": 1839,
+    "detectionTime": 1834,
     "idx": 22,
-    "imageDims": {
-      "height": 590,
-      "width": 1073
-    },
     "imageId": "LAU2E82.jpg",
-    "recognitionTime": 492,
+    "recognitionTime": 493,
     "textOfSample": "LAU2E82"
   },
   {
@@ -3024,14 +2932,10 @@
         "title": "5"
       }
     ],
-    "detectionTime": 1842,
+    "detectionTime": 1884,
     "idx": 23,
-    "imageDims": {
-      "height": 1201,
-      "width": 1600
-    },
     "imageId": "BCV3G65.jpg",
-    "recognitionTime": 492,
+    "recognitionTime": 494,
     "textOfSample": "BCV3G65"
   },
   {
@@ -3151,14 +3055,10 @@
         "title": "7"
       }
     ],
-    "detectionTime": 1896,
+    "detectionTime": 1892,
     "idx": 24,
-    "imageDims": {
-      "height": 700,
-      "width": 960
-    },
     "imageId": "FUU0C47.jpg",
-    "recognitionTime": 488,
+    "recognitionTime": 494,
     "textOfSample": "FUU0C47"
   },
   {
@@ -3278,14 +3178,10 @@
         "title": "0"
       }
     ],
-    "detectionTime": 1890,
+    "detectionTime": 1884,
     "idx": 25,
-    "imageDims": {
-      "height": 415,
-      "width": 739
-    },
     "imageId": "NKC6590.jpg",
-    "recognitionTime": 491,
+    "recognitionTime": 493,
     "textOfSample": "NKC6590"
   }
 ]
