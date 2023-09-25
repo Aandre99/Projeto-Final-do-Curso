@@ -235,7 +235,7 @@ def get_metrics(groundtruths: dict, predictions: dict):
         if gt["groundtruth"] == pred["prediction"]:
             hits[i] = 1
         else:
-            print(f"{gt['groundtruth']} | {pred['prediction']}")
+            print(f"{image_id} | {gt['groundtruth']} | {pred['prediction']}")
 
         lv_distances.append(
             get_levistain_distance(gt["groundtruth"], pred["prediction"])
@@ -252,16 +252,16 @@ def get_metrics(groundtruths: dict, predictions: dict):
         cr_pred_boxes.extend(cr_pred_box)
 
     accuracy = hits.mean() * 100
-    #cd_time = (cd_times.mean(), cd_times.std())
-    #cr_time = (cr_times.mean(), cr_times.std())
+    cd_time = (cd_times.mean(), cd_times.std())
+    cr_time = (cr_times.mean(), cr_times.std())
     cd_map = compute_map(cd_pred_boxes, cd_gt_boxes, np.arange(0.5, 1.0, 0.05), 1)
     cr_map = compute_map(cr_pred_boxes, cr_gt_boxes, np.arange(0.5, 1.0, 0.05), 36)
     lv_dist_mean = np.mean(lv_distances)
 
     metrics = {
         "accuracy": f"{accuracy:.2f}%",
-     #   "cd_time": f"{cd_time[0]:.2f} ± {cd_time[1]:.2f} ms",
-     #   "cr_time": f"{cr_time[0]:.2f} ± {cr_time[1]:.2f} ms",
+        "CD Time": f"{cd_time[0]:.2f} ± {cd_time[1]:.2f} ms",
+        "CR Time": f"{cr_time[0]:.2f} ± {cr_time[1]:.2f} ms",
         "CD mAP@0.5:0.95": f"{cd_map:.2f}",
         "CR mAP@0.5:0.95": f"{cr_map:.2f}",
         "lv_distance": f"{lv_dist_mean:.2f}",

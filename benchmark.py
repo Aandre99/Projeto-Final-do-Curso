@@ -3,6 +3,7 @@ from pathlib import Path
 
 from utils.data import *
 from utils.metrics import get_metrics
+from utils.plot import plot_boxes, plot_desktop_benchmark_metrics
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Mobile OCR Benchmark")
@@ -11,18 +12,22 @@ if __name__ == "__main__":
     parser.add_argument("--json-path", type=Path, help="Path to json file")
     args = parser.parse_args()
 
-    print('> Build json with Android embbeded model predictions\n')
+    print("> Build json with Android embbeded model predictions\n")
     benchmark_dict = json_to_dict(args.json_path)
 
-    print('> Build predictions dictionary\n')
+    print("> Build predictions dictionary\n")
     predictions = get_predictions(args.labels_dir, benchmark_dict)
-    
-    print('> Build groundtruths dictionary\n')
+
+    print("> Build groundtruths dictionary\n")
     groundtruths = get_groundtruth(args.images_dir, args.labels_dir)
-    
-    print('> Fit predictions boxes to groundtruths dimensions\n')
+
+    print("> Fit predictions boxes to groundtruths dimensions\n")
     predictions = fit_pred_boxes_to_gt_boxes(groundtruths, predictions)
 
-    print('> Computing metrics\n')
+    # plot_boxes(predictions, args.images_dir, n_samples=10)
+
+    print(len(predictions.keys()))
+
+    print("> Computing metrics\n")
     metrics = get_metrics(groundtruths, predictions)
     pprint(metrics)
