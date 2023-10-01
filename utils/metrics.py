@@ -1,4 +1,5 @@
 from collections import Counter
+from pprint import pprint
 
 import Levenshtein as lev
 import numpy as np
@@ -132,9 +133,10 @@ def compute_map(
         epsilon = 1e-6
 
         for c in range(num_classes):
+            
             detections = filter_boxes_class(pred_boxes, c)
             ground_truths = filter_boxes_class(true_boxes, c)
-
+            
             amount_bboxes = Counter([gt[0] for gt in ground_truths])
 
             for key, val in amount_bboxes.items():
@@ -146,19 +148,19 @@ def compute_map(
             FP = np.zeros((len(detections)))
 
             total_true_bboxes = len(ground_truths)
-
             if total_true_bboxes == 0:
                 continue
-
+            
             for detection_idx, detection in enumerate(detections):
                 ground_truth_img = [
                     bbox for bbox in ground_truths if bbox[0] == detection[0]
                 ]
 
-                num_gts = len(ground_truth_img)
                 best_iou = 0
+                best_gt_idx = -1
 
                 for idx, gt in enumerate(ground_truth_img):
+                    
                     iou = intersection_over_union(
                         np.array(detection[3:]), np.array(gt[3:])
                     )
@@ -167,26 +169,30 @@ def compute_map(
                         best_iou = iou
                         best_gt_idx = idx
 
-                if best_iou > iou_threshold:
+                if (best_iou > iou_threshold) and (best_gt_idx != -1):
+                    
                     if amount_bboxes[detection[0]][best_gt_idx] == 0:
                         TP[detection_idx] = 1
                         amount_bboxes[detection[0]][best_gt_idx] = 1
                     else:
                         FP[detection_idx] = 1
-
                 else:
                     FP[detection_idx] = 1
 
             TP_cumsum = np.cumsum(TP)
             FP_cumsum = np.cumsum(FP)
+            
             recalls = TP_cumsum / (total_true_bboxes + epsilon)
             precisions = TP_cumsum / (TP_cumsum + FP_cumsum + epsilon)
+            
             precisions = np.concatenate((np.array([1]), precisions))
             recalls = np.concatenate((np.array([0]), recalls))
+            
             average_precisions.append(np.trapz(precisions, recalls))
-
+            print(c, average_precisions[-1])
+            
         mAPs[iou_threshold] = sum(average_precisions) / len(average_precisions)
-
+        break
     return np.mean(list(mAPs.values()))
 
 
@@ -232,7 +238,7 @@ def get_metrics(groundtruths: dict, predictions: dict):
         cd_times[i] = pred["cd_time"]
         cr_times[i] = pred["cr_time"]
 
-        if gt["groundtruth"] == pred["prediction"]:
+        if pred["prediction"] == gt["groundtruth"]:
             hits[i] = 1
         else:
             print(f"{image_id} | {gt['groundtruth']} | {pred['prediction']}")
@@ -252,16 +258,16 @@ def get_metrics(groundtruths: dict, predictions: dict):
         cr_pred_boxes.extend(cr_pred_box)
 
     accuracy = hits.mean() * 100
-    #cd_time = (cd_times.mean(), cd_times.std())
-    #cr_time = (cr_times.mean(), cr_times.std())
+    cd_time = (cd_times.mean(), cd_times.std())
+    cr_time = (cr_times.mean(), cr_times.std())
     cd_map = compute_map(cd_pred_boxes, cd_gt_boxes, np.arange(0.5, 1.0, 0.05), 1)
     cr_map = compute_map(cr_pred_boxes, cr_gt_boxes, np.arange(0.5, 1.0, 0.05), 36)
     lv_dist_mean = np.mean(lv_distances)
 
     metrics = {
         "accuracy": f"{accuracy:.2f}%",
-     #   "cd_time": f"{cd_time[0]:.2f} ± {cd_time[1]:.2f} ms",
-     #   "cr_time": f"{cr_time[0]:.2f} ± {cr_time[1]:.2f} ms",
+        "CD Time": f"{cd_time[0]:.2f} ± {cd_time[1]:.2f} ms",
+        "CR Time": f"{cr_time[0]:.2f} ± {cr_time[1]:.2f} ms",
         "CD mAP@0.5:0.95": f"{cd_map:.2f}",
         "CR mAP@0.5:0.95": f"{cr_map:.2f}",
         "lv_distance": f"{lv_dist_mean:.2f}",

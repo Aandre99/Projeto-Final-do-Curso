@@ -55,7 +55,7 @@ def rescale_images(src_folder: Path, out_folder: Path, task: str):
         The task to perform, either "cd" (code detection) or "cr" (code recognition).
     """
 
-    images = list(src_folder.glob("*.jpg"))
+    images = list(src_folder.rglob("*.jpg")) + list(src_folder.rglob("*.jpeg"))
 
     for image_path in tqdm(images, desc=f"Rescaling {task} images"):
         w, h = imagesize.get(image_path)
