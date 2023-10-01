@@ -1,7 +1,8 @@
-from pathlib import Path
 import argparse
 import string
+from pathlib import Path
 from shutil import copyfile
+
 import imagesize
 from tqdm import tqdm
 
@@ -67,6 +68,7 @@ def rescale_images(src_folder: Path, out_folder: Path, task: str):
             for line in lines:
                 line = line.strip("\n").split(" ")
                 cxcywh = [float(x) for x in line[1:]]
+                print(cxcywh)
                 xyxy = cxcwh_to_xyxy(cxcywh, w, h)
 
                 cls_idx = int(line[0])

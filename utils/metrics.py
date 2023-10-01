@@ -235,7 +235,7 @@ def get_metrics(groundtruths: dict, predictions: dict):
         if gt["groundtruth"] == pred["prediction"]:
             hits[i] = 1
         else:
-            print(f"{gt['groundtruth']} | {pred['prediction']}")
+            print(f"{image_id} | {gt['groundtruth']} | {pred['prediction']}")
 
         lv_distances.append(
             get_levistain_distance(gt["groundtruth"], pred["prediction"])

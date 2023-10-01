@@ -1,2 +1,7 @@
 .vscode
-utils/__pycache__/
+utils/__pycache__
+/models
+/data
+/cvt
+benchmark_cli.txt
+/BenchmarkResults
