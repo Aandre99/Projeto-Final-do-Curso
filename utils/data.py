@@ -46,6 +46,7 @@ def sampleBoxes_to_predictions(
     boxes = []
 
     for i in range(len(sample_boxes)):
+
         sample_box = sample_boxes[i]
 
         conf = sample_box["confidence"]
@@ -95,7 +96,7 @@ def get_predictions(labels_dir, data: list) -> dict:
         predictions[image_id] = {
             "prediction": prediction,
             "cd_dim": cd_input_dim,
-            "cr_dim": gt_plate_dim,
+            "cr_dim": cr_input_dim,
             "cd_time": cd_inference_time,
             "cr_time": cr_inference_time,
             "cd_boxes": cd_boxes,
@@ -160,6 +161,7 @@ def fit_pred_boxes_to_gt_boxes(groundtruths_dict: dict, predictions_dict) -> dic
 
     for image_id, image_info in pred_copy.items():
         cr_boxes = []
+
         for cr_box in image_info["cr_boxes"]:
             cls, conf, x1, y1, x2, y2 = cr_box
             cr_boxes.append(
@@ -174,7 +176,7 @@ def fit_pred_boxes_to_gt_boxes(groundtruths_dict: dict, predictions_dict) -> dic
         scaled_predictions[image_id] = {
             "prediction": image_info["prediction"],
             "cd_dim": predictions_dict[image_id]["cd_dim"],
-            "cr_dim": predictions_dict[image_id]["cr_dim"],
+            "cr_dim": groundtruths_dict[image_id]["cr_dim"],
             "cd_boxes": predictions_dict[image_id]["cd_boxes"],
             "cr_boxes": cr_boxes,
             "cd_time": predictions_dict[image_id]["cd_time"],

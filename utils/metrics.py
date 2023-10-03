@@ -3,6 +3,7 @@ from pprint import pprint
 
 import Levenshtein as lev
 import numpy as np
+from matplotlib import pyplot as plt
 from tqdm import tqdm
 
 
@@ -112,7 +113,7 @@ def compute_map(
     true_boxes: list,
     iou_thresholds: list = [0.5],
     num_classes: int = 1,
-) -> float:
+) -> tuple[dict, float]:
     """
     Calculates mean average precision (mAP) for a range of IoU thresholds.
 
@@ -127,8 +128,11 @@ def compute_map(
         dict: mAP values for each IoU threshold.
     """
     mAPs = {}
+    iou_thresholds = [round(x, 2) for x in iou_thresholds]
+    infos = {iou: {} for iou in iou_thresholds}
 
     for iou_threshold in iou_thresholds:
+
         average_precisions = []
         epsilon = 1e-6
 
@@ -138,7 +142,7 @@ def compute_map(
             ground_truths = filter_boxes_class(true_boxes, c)
             
             amount_bboxes = Counter([gt[0] for gt in ground_truths])
-
+            
             for key, val in amount_bboxes.items():
                 amount_bboxes[key] = np.zeros(val)
 
@@ -187,13 +191,22 @@ def compute_map(
             
             precisions = np.concatenate((np.array([1]), precisions))
             recalls = np.concatenate((np.array([0]), recalls))
-            
-            average_precisions.append(np.trapz(precisions, recalls))
-            print(c, average_precisions[-1])
+            ap = np.trapz(precisions, recalls)
+
+            average_precisions.append(ap)
+            # print(c, average_precisions[-1])
+
+            infos[iou_threshold].update({
+                c: {
+                    "precision": precisions,
+                    "recall": recalls,
+                    "AP": ap,
+                }
+            })
             
         mAPs[iou_threshold] = sum(average_precisions) / len(average_precisions)
-        break
-    return np.mean(list(mAPs.values()))
+    
+    return mAPs, np.mean(list(mAPs.values()))
 
 
 def get_metrics(groundtruths: dict, predictions: dict):
@@ -243,9 +256,9 @@ def get_metrics(groundtruths: dict, predictions: dict):
         else:
             print(f"{image_id} | {gt['groundtruth']} | {pred['prediction']}")
 
-        lv_distances.append(
-            get_levistain_distance(gt["groundtruth"], pred["prediction"])
-        )
+            lv_distances.append(
+                get_levistain_distance(gt["groundtruth"], pred["prediction"])
+            )
 
         cd_gt_box = list(map(lambda x: [i] + x, gt["cd_boxes"]))
         cd_pred_box = list(map(lambda x: [i] + x, pred["cd_boxes"]))
@@ -260,8 +273,8 @@ def get_metrics(groundtruths: dict, predictions: dict):
     accuracy = hits.mean() * 100
     cd_time = (cd_times.mean(), cd_times.std())
     cr_time = (cr_times.mean(), cr_times.std())
-    cd_map = compute_map(cd_pred_boxes, cd_gt_boxes, np.arange(0.5, 1.0, 0.05), 1)
-    cr_map = compute_map(cr_pred_boxes, cr_gt_boxes, np.arange(0.5, 1.0, 0.05), 36)
+    cd_map_info, cd_map = compute_map(cd_pred_boxes, cd_gt_boxes, np.arange(0.5, 1.0, 0.05), 1)
+    cr_map_info, cr_map = compute_map(cr_pred_boxes, cr_gt_boxes, np.arange(0.5, 1.0, 0.05), 36)
     lv_dist_mean = np.mean(lv_distances)
 
     metrics = {
@@ -270,7 +283,11 @@ def get_metrics(groundtruths: dict, predictions: dict):
         "CR Time": f"{cr_time[0]:.2f} ± {cr_time[1]:.2f} ms",
         "CD mAP@0.5:0.95": f"{cd_map:.2f}",
         "CR mAP@0.5:0.95": f"{cr_map:.2f}",
+        "CD mAP@0.5": f"{cd_map_info[0.5]:.2f}",
+        "CR mAP@0.5": f"{cr_map_info[0.5]:.2f}",
         "lv_distance": f"{lv_dist_mean:.2f}",
     }
+
+    print("\n\n")
 
     return metrics

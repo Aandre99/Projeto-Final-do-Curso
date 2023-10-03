@@ -3,7 +3,7 @@ from pathlib import Path
 
 from utils.data import *
 from utils.metrics import get_metrics
-from utils.plot import plot_boxes
+from utils.plot import plot_boxes, plot_two_boxes
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Mobile OCR Benchmark")
@@ -21,12 +21,16 @@ if __name__ == "__main__":
     print("> Build groundtruths dictionary\n")
     groundtruths = get_groundtruth(args.images_dir, args.labels_dir)
 
+    # plot_boxes(predictions, args.images_dir, n_samples=2)
+
     print("> Fit predictions boxes to groundtruths dimensions\n")
     predictions = fit_pred_boxes_to_gt_boxes(groundtruths, predictions)
 
+    # plot_boxes(groundtruths, predictions, args.images_dir, n_samples=10)
 
-    #plot_boxes(predictions, args.images_dir, n_samples=10)
+    # plot_two_boxes(groundtruths,predictions, args.images_dir, n_samples=2)
+    # plot_boxes(predictions, args.images_dir, n_samples=2)
 
-    print('> Computing metrics\n')
+    # print('> Computing metrics\n')
     metrics = get_metrics(groundtruths, predictions)
     pprint(metrics)
