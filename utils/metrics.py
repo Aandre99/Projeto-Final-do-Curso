@@ -1,8 +1,10 @@
 from collections import Counter
+from pathlib import Path
 from pprint import pprint
 
 import Levenshtein as lev
 import numpy as np
+import pandas as pd
 from matplotlib import pyplot as plt
 from tqdm import tqdm
 
@@ -137,12 +139,12 @@ def compute_map(
         epsilon = 1e-6
 
         for c in range(num_classes):
-            
+
             detections = filter_boxes_class(pred_boxes, c)
             ground_truths = filter_boxes_class(true_boxes, c)
-            
+
             amount_bboxes = Counter([gt[0] for gt in ground_truths])
-            
+
             for key, val in amount_bboxes.items():
                 amount_bboxes[key] = np.zeros(val)
 
@@ -154,7 +156,7 @@ def compute_map(
             total_true_bboxes = len(ground_truths)
             if total_true_bboxes == 0:
                 continue
-            
+
             for detection_idx, detection in enumerate(detections):
                 ground_truth_img = [
                     bbox for bbox in ground_truths if bbox[0] == detection[0]
@@ -164,7 +166,7 @@ def compute_map(
                 best_gt_idx = -1
 
                 for idx, gt in enumerate(ground_truth_img):
-                    
+
                     iou = intersection_over_union(
                         np.array(detection[3:]), np.array(gt[3:])
                     )
@@ -174,7 +176,7 @@ def compute_map(
                         best_gt_idx = idx
 
                 if (best_iou > iou_threshold) and (best_gt_idx != -1):
-                    
+
                     if amount_bboxes[detection[0]][best_gt_idx] == 0:
                         TP[detection_idx] = 1
                         amount_bboxes[detection[0]][best_gt_idx] = 1
@@ -185,10 +187,10 @@ def compute_map(
 
             TP_cumsum = np.cumsum(TP)
             FP_cumsum = np.cumsum(FP)
-            
+
             recalls = TP_cumsum / (total_true_bboxes + epsilon)
             precisions = TP_cumsum / (TP_cumsum + FP_cumsum + epsilon)
-            
+
             precisions = np.concatenate((np.array([1]), precisions))
             recalls = np.concatenate((np.array([0]), recalls))
             ap = np.trapz(precisions, recalls)
@@ -196,16 +198,18 @@ def compute_map(
             average_precisions.append(ap)
             # print(c, average_precisions[-1])
 
-            infos[iou_threshold].update({
-                c: {
-                    "precision": precisions,
-                    "recall": recalls,
-                    "AP": ap,
+            infos[iou_threshold].update(
+                {
+                    c: {
+                        "precision": precisions,
+                        "recall": recalls,
+                        "AP": ap,
+                    }
                 }
-            })
-            
+            )
+
         mAPs[iou_threshold] = sum(average_precisions) / len(average_precisions)
-    
+
     return mAPs, np.mean(list(mAPs.values()))
 
 
@@ -242,6 +246,7 @@ def get_metrics(groundtruths: dict, predictions: dict):
     cr_gt_boxes = []
     cr_pred_boxes = []
 
+    data = []
     lv_distances = []
 
     for i, image_id in enumerate(groundtruths.keys()):
@@ -251,10 +256,12 @@ def get_metrics(groundtruths: dict, predictions: dict):
         cd_times[i] = pred["cd_time"]
         cr_times[i] = pred["cr_time"]
 
+        data.append([image_id, gt["groundtruth"], pred["prediction"]])
+
         if pred["prediction"] == gt["groundtruth"]:
             hits[i] = 1
         else:
-            print(f"{image_id} | {gt['groundtruth']} | {pred['prediction']}")
+            # print(f"{image_id} | {gt['groundtruth']} | {pred['prediction']}")
 
             lv_distances.append(
                 get_levistain_distance(gt["groundtruth"], pred["prediction"])
@@ -273,21 +280,97 @@ def get_metrics(groundtruths: dict, predictions: dict):
     accuracy = hits.mean() * 100
     cd_time = (cd_times.mean(), cd_times.std())
     cr_time = (cr_times.mean(), cr_times.std())
-    cd_map_info, cd_map = compute_map(cd_pred_boxes, cd_gt_boxes, np.arange(0.5, 1.0, 0.05), 1)
-    cr_map_info, cr_map = compute_map(cr_pred_boxes, cr_gt_boxes, np.arange(0.5, 1.0, 0.05), 36)
+    cd_map_info, cd_map = compute_map(
+        cd_pred_boxes, cd_gt_boxes, np.arange(0.5, 1.0, 0.05), 1
+    )
+    cr_map_info, cr_map = compute_map(
+        cr_pred_boxes, cr_gt_boxes, np.arange(0.5, 1.0, 0.05), 36
+    )
     lv_dist_mean = np.mean(lv_distances)
 
-    metrics = {
-        "accuracy": f"{accuracy:.2f}%",
-        "CD Time": f"{cd_time[0]:.2f} ± {cd_time[1]:.2f} ms",
-        "CR Time": f"{cr_time[0]:.2f} ± {cr_time[1]:.2f} ms",
-        "CD mAP@0.5:0.95": f"{cd_map:.2f}",
-        "CR mAP@0.5:0.95": f"{cr_map:.2f}",
-        "CD mAP@0.5": f"{cd_map_info[0.5]:.2f}",
-        "CR mAP@0.5": f"{cr_map_info[0.5]:.2f}",
-        "lv_distance": f"{lv_dist_mean:.2f}",
-    }
+    # metrics = {
+    #     "accuracy": f"{accuracy:.2f}%",
+    #     "CD Time": f"{cd_time[0]:.2f} ± {cd_time[1]:.2f} ms",
+    #     "CR Time": f"{cr_time[0]:.2f} ± {cr_time[1]:.2f} ms",
+    #     "CD mAP@0.5:0.95": f"{cd_map:.2f}",
+    #     "CR mAP@0.5:0.95": f"{cr_map:.2f}",
+    #     "CD mAP@0.5": f"{cd_map_info[0.5]:.2f}",
+    #     "CR mAP@0.5": f"{cr_map_info[0.5]:.2f}",
+    #     "lv_distance": f"{lv_dist_mean:.2f}",
+    # }
 
-    print("\n\n")
+    metrics = [
+        accuracy,
+        cd_time[0],
+        cd_time[1],
+        cr_time[0],
+        cr_time[1],
+        cd_map,
+        cr_map,
+        cd_map_info[0.5],
+        cr_map_info[0.5],
+        lv_dist_mean,
+    ]
+    return data, metrics
 
-    return metrics
+
+def build_accuracy_df(gpu_data: list[str], cpu_data: list[str], output_dir: Path):
+
+    """
+    This function returns a dataframe containing the accuracy of the GPU and CPU models.
+
+    Parameters
+    ----------
+    gpu_data : list[str]
+        The `gpu_data` parameter is a list of strings containing the ground truth and predicted values
+    for each image.
+
+    cpu_data : list[str]
+        The `cpu_data` parameter is a list of strings containing the ground truth and predicted values
+    for each image.
+
+    Returns
+    -------
+        save a dataframe containing the accuracy of the GPU and CPU models.
+    """
+
+    df_gpu = pd.DataFrame(gpu_data, columns=["image_id", "groundtruth", "prediction"])
+    df_cpu = pd.DataFrame(cpu_data, columns=["image_id", "groundtruth", "prediction"])
+    df_cpu.drop(columns=["groundtruth"], inplace=True)
+
+    df_all = df_gpu.merge(df_cpu, on="image_id", suffixes=("_GPU", "_CPU"))
+    df_all.to_csv(output_dir / "accuracy.csv", index=False)
+
+
+def build_metrics_df(gpu_metrics: dict, cpu_metrics: dict, output_dir: Path):
+
+    """
+    This function returns a dataframe containing the metrics of the GPU and CPU models.
+
+    Parameters
+    ----------
+    gpu_metrics : dict
+        The `gpu_metrics` parameter is a dictionary containing the metrics of the GPU model like mAP, lv_distance, etc.
+
+    cpu_metrics : dict
+        The `cpu_metrics` parameter is a dictionary containing the metrics of the CPU model like mAP, lv_distance, etc.
+
+    """
+    columns = [
+        "Accuracy",
+        "CD Mean Time",
+        "CD Std Time",
+        "CR Mean Time",
+        "CR Std Time",
+        "CD mAP@0.5:0.95",
+        "CR mAP@0.5:0.95",
+        "CD mAP@0.5",
+        "CR mAP@0.5",
+        "Levenshtein distance",
+    ]
+
+    gpu_metrics_df = pd.DataFrame([gpu_metrics], columns=columns, index=["GPU"])
+    cpu_metrics_df = pd.DataFrame([cpu_metrics], columns=columns, index=["CPU"])
+
+    df_metrics = pd.concat([gpu_metrics_df, cpu_metrics_df])
+    df_metrics.to_csv(output_dir / "metrics.csv")

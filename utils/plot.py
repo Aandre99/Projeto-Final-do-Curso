@@ -60,7 +60,7 @@ def plot_results(images_folder: Path):
 
 
 def plot_boxes(gt_samples: dict, samples: dict, images_dir: Path, n_samples: int = 10):
-    
+
     for i, (image_id, image_info) in enumerate(samples.items()):
 
         manager = plt.get_current_fig_manager()
@@ -102,7 +102,7 @@ def plot_boxes(gt_samples: dict, samples: dict, images_dir: Path, n_samples: int
 
 
 def plot_two_boxes(gts: dict, preds: dict, images_dir: Path, n_samples: int = -1):
-    
+
     for i, (image_id, image_info) in enumerate(preds.items()):
 
         manager = plt.get_current_fig_manager()
@@ -127,27 +127,45 @@ def plot_two_boxes(gts: dict, preds: dict, images_dir: Path, n_samples: int = -1
             x1_pred, y1_pred, x2_pred, y2_pred = pred_box[2:]
             x1_gt, y1_gt, x2_gt, y2_gt = gt_box[2:]
 
-            plate2plot = image2plot[int(y1_gt) : int(y2_gt), int(x1_gt) : int(x2_gt)].copy()
+            plate2plot = image2plot[
+                int(y1_gt) : int(y2_gt), int(x1_gt) : int(x2_gt)
+            ].copy()
 
             image2plot = cv.rectangle(
-                image2plot, (int(x1_pred), int(y1_pred)), (int(x2_pred), int(y2_pred)), (255, 0, 0), 3
+                image2plot,
+                (int(x1_pred), int(y1_pred)),
+                (int(x2_pred), int(y2_pred)),
+                (255, 0, 0),
+                3,
             )
 
             image2plot = cv.rectangle(
-                image2plot, (int(x1_gt), int(y1_gt)), (int(x2_gt), int(y2_gt)), (0, 255, 0), 3
+                image2plot,
+                (int(x1_gt), int(y1_gt)),
+                (int(x2_gt), int(y2_gt)),
+                (0, 255, 0),
+                3,
             )
 
         for pred_box, gt_box in zip(pred_cr_boxes, gt_cr_boxes):
-            
+
             x1_pred, y1_pred, x2_pred, y2_pred = pred_box[2:]
             x1_gt, y1_gt, x2_gt, y2_gt = gt_box[2:]
 
             plate2plot = cv.rectangle(
-                plate2plot, (int(x1_pred), int(y1_pred)), (int(x2_pred), int(y2_pred)), (255, 0, 0), 3
+                plate2plot,
+                (int(x1_pred), int(y1_pred)),
+                (int(x2_pred), int(y2_pred)),
+                (255, 0, 0),
+                3,
             )
 
             plate2plot = cv.rectangle(
-                plate2plot, (int(x1_gt), int(y1_gt)), (int(x2_gt), int(y2_gt)), (0, 255, 0), 3
+                plate2plot,
+                (int(x1_gt), int(y1_gt)),
+                (int(x2_gt), int(y2_gt)),
+                (0, 255, 0),
+                3,
             )
 
         plt.subplot(1, 2, 1)
@@ -157,54 +175,55 @@ def plot_two_boxes(gts: dict, preds: dict, images_dir: Path, n_samples: int = -1
         plt.imshow(plate2plot)
 
         plt.show()
-            
+
 
 def plot_desktop_benchmark_metrics(output_folder: Path):
-    
+
     df_tf = pd.read_csv(output_folder.absolute() / "tflite" / "data.csv")
     df_pt = pd.read_csv(output_folder.absolute() / "pt" / "data.csv")
-    
+
     tf_accs = []
     pt_accs = []
-    
+
     tf_undets = df_tf.query("conf_thresh == -1").shape[0]
     pt_undets = df_pt.query("conf_thresh == -1").shape[0]
-    
+
     confs = np.arange(0.1, 1.0, 0.1)
-    
+
     for conf in confs:
-        
+
         tf_conf = df_tf.query(f"conf_thresh >= {conf}")
         pt_conf = df_pt.query(f"conf_thresh >= {conf}")
-        
+
         tf_accs.append(
-            tf_conf.query("label == pred_thresh").shape[0] / (tf_conf.shape[0] + tf_undets)
+            tf_conf.query("label == pred_thresh").shape[0]
+            / (tf_conf.shape[0] + tf_undets)
         )
 
         pt_accs.append(
-            pt_conf.query("label == pred_thresh").shape[0] / (pt_conf.shape[0] + pt_undets)
+            pt_conf.query("label == pred_thresh").shape[0]
+            / (pt_conf.shape[0] + pt_undets)
         )
-    
+
     print(tf_accs)
     print(pt_accs)
-    
+
     plt.plot(confs, tf_accs, label="TensorFlow", color="orange", linestyle="-")
-    plt.plot(confs,pt_accs,label="PyTorch", color="blue", linestyle="--")
+    plt.plot(confs, pt_accs, label="PyTorch", color="blue", linestyle="--")
     plt.xlabel("Confidence Threshold")
     plt.ylabel("OCR Accuracy")
     plt.xticks(confs)
     plt.yticks(confs)
     plt.legend()
     plt.show()
-        
 
 
 if __name__ == "__main__":
-    
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--images", type=str)
     args = parser.parse_args()
 
     # plot_results(Path(args.images).absolute())
-    
+
     plot_desktop_benchmark_metrics(Path(r"C:\Users\santo\dev\TCC\data\and_bench\outs"))
