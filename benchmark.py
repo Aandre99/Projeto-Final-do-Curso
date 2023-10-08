@@ -5,8 +5,7 @@ import pandas as pd
 
 from utils.data import *
 from utils.metrics import build_accuracy_df, build_metrics_df, get_metrics
-
-# from utils.plot import plot_boxes, plot_two_boxes
+from utils.plot import plot_boxes, plot_two_boxes
 
 if __name__ == "__main__":
 
@@ -24,27 +23,24 @@ if __name__ == "__main__":
     
     for device_name in ["GPU", "CPU"]:
 
-        print(f"\n[+] Build json with Android embbeded model predictions for {device_name}")
+        print(f"\n> Running Mobile ALPR Benchmark with {device_name} predictions\n")
+
+        print(f"\n[+] Load Json file with predictions")
         json_path = args.jsons_dir / f"detections{device_name}.json"
         benchmark_dict = json_to_dict(json_path)
 
-        print(f"[+] Build predictions dictionary for {device_name}")
+        print(f"[+] Build predictions dictionary")
         predictions = get_predictions(args.labels_dir, benchmark_dict)
 
-        print(f"[+] Build groundtruths dictionary for {device_name}")
+        print(f"[+] Build groundtruths dictionary")
         groundtruths = get_groundtruth(args.images_dir, args.labels_dir)
 
-        # plot_boxes(predictions, args.images_dir, n_samples=2)
-
-        print(f"[+] Fit predictions boxes to groundtruths dimensions for {device_name}\n")
+        print(f"[+] Fit predictions to groundtruths")
         predictions = fit_pred_boxes_to_gt_boxes(groundtruths, predictions)
 
-        # plot_boxes(groundtruths, predictions, args.images_dir, n_samples=10)
+        # plot_two_boxes(groundtruths,predictions, args.images_dir, n_samples=5)
+        print('[+] Computing metrics')
 
-        # plot_two_boxes(groundtruths,predictions, args.images_dir, n_samples=2)
-        # plot_boxes(predictions, args.images_dir, n_samples=2)
-
-        # print('> Computing metrics\n')
         device_name_data, device_name_metrics = get_metrics(groundtruths, predictions)
         data[device_name] = device_name_data
         metrics[device_name] = device_name_metrics

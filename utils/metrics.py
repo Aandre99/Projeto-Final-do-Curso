@@ -373,4 +373,15 @@ def build_metrics_df(gpu_metrics: dict, cpu_metrics: dict, output_dir: Path):
     cpu_metrics_df = pd.DataFrame([cpu_metrics], columns=columns, index=["CPU"])
 
     df_metrics = pd.concat([gpu_metrics_df, cpu_metrics_df])
+    df_metrics["CD Time"] = df_metrics.apply(
+        lambda x: f"{x['CD Mean Time']:.2f} ± {x['CD Std Time']:.2f} ms", axis=1
+    )
+    df_metrics["CR Time"] = df_metrics.apply(
+        lambda x: f"{x['CR Mean Time']:.2f} ± {x['CR Std Time']:.2f} ms", axis=1
+    )
+    df_metrics.drop(
+        columns=["CD Mean Time", "CD Std Time", "CR Mean Time", "CR Std Time"],
+        inplace=True,
+    )
+
     df_metrics.to_csv(output_dir / "metrics.csv")
